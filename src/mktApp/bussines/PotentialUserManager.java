@@ -18,7 +18,7 @@ import mktApp.entity.Potential;
 public class PotentialUserManager extends Manager{
     
     //IniciarSesion
-    public boolean SignUpPotential(Potential potential) { //iniciar sesion
+    public boolean singInPotential(Potential potential) { //iniciar sesion
         boolean state = false;
         
         List<Potential> potentials = dataBase.getPotentials();
@@ -85,7 +85,7 @@ public class PotentialUserManager extends Manager{
         return potential;
     }
     
-    //Traer los posibles clientes
+    //Traer los potenciales clientes
     
     public ArrayList<Potential> searchPotentials(String adviser_name){
         ArrayList<Potential> lsPotentials = dataBase.getPotentials();

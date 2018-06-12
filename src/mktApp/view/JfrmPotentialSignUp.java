@@ -12,6 +12,10 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import mktApp.bussines.MainManager;
+import mktApp.entity.Potential;
+import mktApp.utility.Clean;
+import mktApp.view.AdviserView.JfrmAdviserInfo;
 
 /**
  *
@@ -34,6 +38,7 @@ public class JfrmPotentialSignUp extends javax.swing.JFrame {
         fondo.setIcon(uno);
         getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
         fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());
+        setVisible(true);
     }
 
     /**
@@ -49,22 +54,22 @@ public class JfrmPotentialSignUp extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jtxfEmail = new javax.swing.JTextField();
-        jtxfDni = new javax.swing.JTextField();
-        jtxfNombres = new javax.swing.JTextField();
+        jtxfMobile = new javax.swing.JTextField();
+        jtxfCompanyName = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jtxfApPaterno = new javax.swing.JTextField();
+        jtxfNameAdviser = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jtxfApMaterno = new javax.swing.JTextField();
+        jtxfCustomerStatus = new javax.swing.JTextField();
         btnAceptar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
-        jtxfDireccion = new javax.swing.JTextField();
+        jtxfCallStatus = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jPassword1 = new javax.swing.JPasswordField();
-        jPassword2 = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        jtxfFirstName = new javax.swing.JTextField();
+        jtxfLastName = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,7 +97,7 @@ public class JfrmPotentialSignUp extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Nombre de Compañia :");
+        jLabel5.setText("Nombre de Asesor :");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -139,87 +144,84 @@ public class JfrmPotentialSignUp extends javax.swing.JFrame {
                         .addComponent(jLabel16))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel6)
-                                        .addComponent(jLabel14)
-                                        .addComponent(jLabel5))
-                                    .addGap(33, 33, 33))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(jLabel4)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel5)))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel15)
                                     .addComponent(jLabel7)
-                                    .addComponent(jLabel2))))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(351, 351, 351)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jtxfApMaterno, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jtxfApPaterno, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jtxfNombres, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jtxfDni, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPassword1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
-                                    .addComponent(jtxfEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
-                                    .addComponent(jPassword2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
-                                    .addComponent(jtxfDireccion)))))
+                                .addContainerGap()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(65, 65, 65)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jtxfCustomerStatus)
+                            .addComponent(jtxfNameAdviser)
+                            .addComponent(jtxfCompanyName)
+                            .addComponent(jtxfMobile)
+                            .addComponent(jtxfEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
+                            .addComponent(jtxfCallStatus, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jtxfFirstName)
+                            .addComponent(jtxfLastName))
+                        .addGap(7, 7, 7)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(151, 151, 151)
                         .addComponent(btnAceptar)
                         .addGap(44, 44, 44)
                         .addComponent(btnCancelar)))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jtxfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15)))
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jLabel16)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(79, 79, 79)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jtxfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jtxfFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(jLabel16)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15)
+                            .addComponent(jtxfLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jtxfDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtxfMobile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(jtxfNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtxfCompanyName, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtxfApPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxfNameAdviser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtxfApMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxfCustomerStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtxfDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxfCallStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -236,7 +238,59 @@ public class JfrmPotentialSignUp extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxfEmailActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        {
+        /*Leemos los datos del alumno*/
+        Potential potential = new Potential();
+        
+        
+        
+        if (jtxfMobile.getText().length() < 8 || jtxfMobile.getText().length() > 8) {
+            JOptionPane.showMessageDialog(this, "DNI debe tener 8 digitos", "Error", JOptionPane.ERROR_MESSAGE);
+        }else{
+            potential.setEmail(jtxfEmail.getText());
+            potential.setFirst_name(jtxfFirstName.getText());
+            potential.setLast_name(jtxfFirstName.getText());
+            potential.setMobile(jtxfMobile.getText());
+            potential.setName_company(jtxfCompanyName.getText());
+            potential.setName_adviser(jtxfNameAdviser.getText());
+            potential.setCustomer_status(jtxfCustomerStatus.getText());
+            potential.setCall_status(jtxfCallStatus.getText());
+            
+            if (potential.getEmail().trim().equals("") == true) {
+                JOptionPane.showMessageDialog(this, "El Email no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if (potential.getMobile().trim().equals("") == true) {
+                    JOptionPane.showMessageDialog(this, "LA clave no puede estar vacia", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if (potential.getFirst_name().trim().equals("") == true) {
+                        JOptionPane.showMessageDialog(this, "El apellido paterno no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if (potential.getLast_name().trim().equals("") == true) {
+                        JOptionPane.showMessageDialog(this, "El apellido paterno no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if (potential.getName_company().trim().equals("") == true) {
+                        JOptionPane.showMessageDialog(this, "El apellido paterno no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if (potential.getName_adviser().trim().equals("") == true) {
+                        JOptionPane.showMessageDialog(this, "El apellido paterno no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if (potential.getCustomer_status().trim().equals("") == true) {
+                        JOptionPane.showMessageDialog(this, "El apellido paterno no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if (potential.getCall_status().trim().equals("") == true) {
+                        JOptionPane.showMessageDialog(this, "El apellido paterno no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            
+            boolean status = MainManager.getPotentialUserManager().signUp;
+            if(status = true){
+                JOptionPane.showMessageDialog(this,"¡Usuario registrado","Registrado",JOptionPane.INFORMATION_MESSAGE);
+                int response = JOptionPane.showConfirmDialog(this, "¿Desea guardar los cambios efectuados?", "Guardar", JOptionPane.YES_NO_OPTION);
+                if (response == JOptionPane.YES_OPTION) {
+                    boolean status_response = MainManager.getDatabaseManager().guardarCambios();
+                    JfrmAdviserInfo Ad = new JfrmAdviserInfo(adviser.getEmail());
+                    dispose();
+                }else if(response == JOptionPane.NO_OPTION){
+                    Clean C = new Clean();
+                }
+            }else {
+                JOptionPane.showMessageDialog(this, "No se pudo registrar al Usuario, verifique que no esté ya registrado.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            
+            
+        }
+        
             /*Leemos los datos del alumno*/
             Persona persona = new Persona();
 
@@ -250,14 +304,14 @@ public class JfrmPotentialSignUp extends javax.swing.JFrame {
                         "Error", JOptionPane.ERROR_MESSAGE);
                 }
 
-                persona.setDni(jtxfDni.getText());
-                if (jtxfDni.getText().length() < 8 || jtxfDni.getText().length() > 8) {
+                persona.setDni(jtxfMobile.getText());
+                if (jtxfMobile.getText().length() < 8 || jtxfMobile.getText().length() > 8) {
                     JOptionPane.showMessageDialog(this, "DNI debe tener 8 digitos", "Error", JOptionPane.ERROR_MESSAGE);
                 } else {
-                    persona.setNombre(jtxfNombres.getText());
-                    persona.setApPaterno(jtxfApPaterno.getText());
-                    persona.setApMaterno(jtxfApMaterno.getText());
-                    persona.setDireccion(jtxfDireccion.getText());
+                    persona.setNombre(jtxfCompanyName.getText());
+                    persona.setApPaterno(jtxfNameAdviser.getText());
+                    persona.setApMaterno(jtxfCustomerStatus.getText());
+                    persona.setDireccion(jtxfCallStatus.getText());
                     if (jMasc.isSelected()) {
                         persona.setSexo("Masculino");
                     } else if (Jfem.isSelected()) {
@@ -308,7 +362,7 @@ public class JfrmPotentialSignUp extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "La contraseña debe tener 6 a mas digitos",
                     "Error", JOptionPane.ERROR_MESSAGE);
             }
-        }
+        
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -370,13 +424,13 @@ public class JfrmPotentialSignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPasswordField jPassword1;
-    private javax.swing.JPasswordField jPassword2;
-    private javax.swing.JTextField jtxfApMaterno;
-    private javax.swing.JTextField jtxfApPaterno;
-    private javax.swing.JTextField jtxfDireccion;
-    private javax.swing.JTextField jtxfDni;
+    private javax.swing.JTextField jtxfCallStatus;
+    private javax.swing.JTextField jtxfCompanyName;
+    private javax.swing.JTextField jtxfCustomerStatus;
     private javax.swing.JTextField jtxfEmail;
-    private javax.swing.JTextField jtxfNombres;
+    private javax.swing.JTextField jtxfFirstName;
+    private javax.swing.JTextField jtxfLastName;
+    private javax.swing.JTextField jtxfMobile;
+    private javax.swing.JTextField jtxfNameAdviser;
     // End of variables declaration//GEN-END:variables
 }
