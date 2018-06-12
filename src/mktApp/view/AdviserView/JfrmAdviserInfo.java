@@ -10,7 +10,7 @@ import mktApp.bussines.MainManager;
 import mktApp.entity.Adviser;
 import mktApp.entity.Potential;
 import mktApp.view.JfrmMainView;
-import mktApp.view.JfrmSignUpPotential;
+import mktApp.view.JfrmPotentialSignUp;
 
 /**
  *
@@ -501,14 +501,14 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPaneVerPubl, javax.swing.GroupLayout.DEFAULT_SIZE, 713, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jTabbedPaneVerPubl, javax.swing.GroupLayout.DEFAULT_SIZE, 689, Short.MAX_VALUE)
+                .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jTabbedPaneVerPubl, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -516,10 +516,37 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSalirActionPerformed
+        JfrmMainView MV = new JfrmMainView();
+        setVisible(false);
+    }//GEN-LAST:event_jSalirActionPerformed
+
+    private void jtblVerMasClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtblVerMasClicked
+
+    }//GEN-LAST:event_jtblVerMasClicked
+
+    private void btnShowAccountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAccountsActionPerformed
+        // TODO add your handling code here:
+
+        //MOSTRAR
+
+    }//GEN-LAST:event_btnShowAccountsActionPerformed
+
+    private void btnAddPotentialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPotentialActionPerformed
+        // TODO add your handling code here:
+        JfrmPotentialSignUp P = new JfrmPotentialSignUp();
+        setVisible(false);
+
+    }//GEN-LAST:event_btnAddPotentialActionPerformed
+
+    private void jtblShowPotentialsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtblShowPotentialsMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtblShowPotentialsMouseClicked
+
     private void btnShowPotentialsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowPotentialsActionPerformed
         // TODO add your handling code here:
         ArrayList<Potential> P = MainManager.getPotentialUserManager().searchPotentials(email);
-        
+
         try{
             if(P.size() == 0){
                 JOptionPane.showMessageDialog(this, "Aún no hay Anuncios registrados.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -535,42 +562,8 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
                 }
             }
         }catch(Exception E){
-        } 
+        }
     }//GEN-LAST:event_btnShowPotentialsActionPerformed
-
-    private void jSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSalirActionPerformed
-        JfrmMainView MV = new JfrmMainView();
-        setVisible(false);
-    }//GEN-LAST:event_jSalirActionPerformed
-
-    private void btnShowAccountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAccountsActionPerformed
-        // TODO add your handling code here:
-        
-        //MOSTRAR 
-        
-    }//GEN-LAST:event_btnShowAccountsActionPerformed
-
-    private void jtblVerMasClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtblVerMasClicked
-        /*ArrayList<Anuncio> A = GestorPrincipal.getGestorUsuarioEmpresa().verMisAnuncios(empresa);
-                
-        int fila = jtblAnuncios.rowAtPoint(evt.getPoint());
-        int colum = jtblAnuncios.columnAtPoint(evt.getPoint());
-        
-        if(fila>=0 && colum==3 && jtblAnuncios.isEnabled()){
-            System.out.println(fila);
-        }*/
-    }//GEN-LAST:event_jtblVerMasClicked
-
-    private void jtblShowPotentialsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtblShowPotentialsMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtblShowPotentialsMouseClicked
-
-    private void btnAddPotentialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPotentialActionPerformed
-        // TODO add your handling code here:
-        JfrmSignUpPotential P = new JfrmSignUpPotential();
-        setVisible(false);
-        
-    }//GEN-LAST:event_btnAddPotentialActionPerformed
 
     /**
      * @param args the command line arguments
@@ -590,14 +583,16 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JfrmSignUpPotential.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmPotentialSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JfrmSignUpPotential.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmPotentialSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JfrmSignUpPotential.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmPotentialSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JfrmSignUpPotential.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmPotentialSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -643,7 +638,7 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
     public static javax.swing.JMenuItem jSalir;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    public static javax.swing.JTabbedPane jTabbedPaneVerPubl;
+    private javax.swing.JTabbedPane jTabbedPaneVerPubl;
     private javax.swing.JTextField jTextDescripcion;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField2;
