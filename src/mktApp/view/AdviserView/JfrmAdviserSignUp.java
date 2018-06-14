@@ -238,7 +238,7 @@ public class JfrmAdviserSignUp extends javax.swing.JFrame {
                     if (response == JOptionPane.YES_OPTION) {
                         boolean status_response = MainManager.getDatabaseManager().guardarCambios();
                         JfrmAdviserInfo Ad = new JfrmAdviserInfo(adviser.getEmail());
-                        dispose();
+                        this.dispose();
                     } else if (response == JOptionPane.NO_OPTION) {
                         Clean C = new Clean();
                     }

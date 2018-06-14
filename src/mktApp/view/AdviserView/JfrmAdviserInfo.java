@@ -38,9 +38,10 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
         getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
         fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());
         
-        iniciarComponentes();
         this.adviser_email = email;
         adviser = MainManager.getAdviserUserManager().searchAdviser(email);  
+        iniciarComponentes();
+        
     }
 
     public void iniciarComponentes() {
