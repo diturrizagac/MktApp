@@ -20,18 +20,14 @@ import mktApp.view.JfrmMainView;
 
 /**
  *
- * @author Diego Iturrizaga
+ * @author DIEGO
  */
 public class JfrmAdviserSignUp extends javax.swing.JFrame {
-
-    /**
-     * Creates new form JpanRegistrarPerson
-     */
     public JfrmAdviserSignUp() {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("Agencia de Empleos");
+        setTitle("Marketing Digital");
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/icono.png")).getImage());
         ((JPanel)getContentPane()).setOpaque(false);
         ImageIcon uno=new ImageIcon(this.getClass().getResource("/imagenes/fondo3.jpg"));
@@ -39,7 +35,6 @@ public class JfrmAdviserSignUp extends javax.swing.JFrame {
         fondo.setIcon(uno);
         getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
         fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());
-        setVisible(true);
     }
 
     /**
@@ -209,9 +204,9 @@ public class JfrmAdviserSignUp extends javax.swing.JFrame {
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         
-        /*Leemos los datos del alumno*/
+        /*Leemos los datos del asesor*/
         Adviser adviser = new Adviser();
-        
+
         adviser.setEmail(jtxfEmail.getText());
         if(jPassword1.getText().length() >= 6){
             if(jPassword1.getText().equalsIgnoreCase(jPassword2.getText())){
@@ -226,33 +221,31 @@ public class JfrmAdviserSignUp extends javax.swing.JFrame {
             /*Validamos los datos, usamos la versión resumida del "if-else" anidado*/
             if (adviser.getEmail().trim().equals("") == true) {
                 JOptionPane.showMessageDialog(this, "El Email no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if (adviser.getPassword().trim().equals("") == true) {
-                    JOptionPane.showMessageDialog(this, "LA clave no puede estar vacia", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if (adviser.getFirst_name().trim().equals("") == true) {
-                        JOptionPane.showMessageDialog(this, "El apellido paterno no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if (adviser.getLast_name().trim().equals("") == true) {
-                        JOptionPane.showMessageDialog(this, "El apellido paterno no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if (adviser.getRole_job().trim().equals("") == true) {
-                        JOptionPane.showMessageDialog(this, "El apellido paterno no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (adviser.getPassword().trim().equals("") == true) {
+                    JOptionPane.showMessageDialog(this, "La clave no puede estar vacia", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (adviser.getFirst_name().trim().equals("") == true) {
+                        JOptionPane.showMessageDialog(this, "El nombre no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (adviser.getLast_name().trim().equals("") == true) {
+                        JOptionPane.showMessageDialog(this, "El apellido no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (adviser.getRole_job().trim().equals("") == true) {
+                        JOptionPane.showMessageDialog(this, "El cargo no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                /*Si pasamos todas las validaciones, lo registramos*/
+                boolean status = MainManager.getAdviserUserManager().signUpAdviser(adviser);
+                if (status == true) {
+                    JOptionPane.showMessageDialog(this, "¡Usuario registrado", "Registrado", JOptionPane.INFORMATION_MESSAGE);
+                    int response = JOptionPane.showConfirmDialog(this, "¿Desea guardar los cambios efectuados?", "Guardar", JOptionPane.YES_NO_OPTION);
+                    if (response == JOptionPane.YES_OPTION) {
+                        boolean status_response = MainManager.getDatabaseManager().guardarCambios();
+                        JfrmAdviserInfo Ad = new JfrmAdviserInfo(adviser.getEmail());
+                        dispose();
+                    } else if (response == JOptionPane.NO_OPTION) {
+                        Clean C = new Clean();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "No se pudo registrar al Usuario, verifique que no esté ya registrado.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-            
-            /*Si pasamos todas las validaciones, lo registramos*/
-            boolean status = MainManager.getAdviserUserManager().signUpAdviser(adviser);
-            if(status = true){
-                JOptionPane.showMessageDialog(this,"¡Usuario registrado","Registrado",JOptionPane.INFORMATION_MESSAGE);
-                int response = JOptionPane.showConfirmDialog(this, "¿Desea guardar los cambios efectuados?", "Guardar", JOptionPane.YES_NO_OPTION);
-                if (response == JOptionPane.YES_OPTION) {
-                    boolean status_response = MainManager.getDatabaseManager().guardarCambios();
-                    JfrmAdviserInfo Ad = new JfrmAdviserInfo(adviser.getEmail());
-                    dispose();
-                }else if(response == JOptionPane.NO_OPTION){
-                    Clean C = new Clean();
-                }
-            }else {
-                JOptionPane.showMessageDialog(this, "No se pudo registrar al Usuario, verifique que no esté ya registrado.", "Error", JOptionPane.ERROR_MESSAGE);
             }
-            
-            
         }else {
             JOptionPane.showMessageDialog(this, "La contraseña debe tener 6 a mas digitos","Error", JOptionPane.ERROR_MESSAGE);
         }

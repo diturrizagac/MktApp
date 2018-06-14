@@ -36,7 +36,6 @@ public abstract class DivideAndConquerSearch<T extends User, P extends Parameter
     
     protected abstract List<T> solve(final List<T> lista, P parameters);
     
-
     /**
      *
      * El mezclado ya se hace en el metodo calcular.

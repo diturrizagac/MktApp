@@ -13,6 +13,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import mktApp.bussines.MainManager;
+import mktApp.entity.Adviser;
 import mktApp.entity.Potential;
 import mktApp.utility.Clean;
 import mktApp.view.AdviserView.JfrmAdviserInfo;
@@ -22,11 +23,12 @@ import mktApp.view.AdviserView.JfrmAdviserInfo;
  * @author Diego Iturrizaga
  */
 public class JfrmPotentialSignUp extends javax.swing.JFrame {
+    String adviser_email_parameter;
 
     /**
      * Creates new form JpanRegistrarPerson
      */
-    public JfrmPotentialSignUp() {
+    public JfrmPotentialSignUp(String email_paramter) {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -39,6 +41,7 @@ public class JfrmPotentialSignUp extends javax.swing.JFrame {
         getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
         fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());
         setVisible(true);
+        this.adviser_email_parameter = email_paramter;
     }
 
     /**
@@ -258,28 +261,28 @@ public class JfrmPotentialSignUp extends javax.swing.JFrame {
             if (potential.getEmail().trim().equals("") == true) {
                 JOptionPane.showMessageDialog(this, "El Email no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
                 } else if (potential.getMobile().trim().equals("") == true) {
-                    JOptionPane.showMessageDialog(this, "LA clave no puede estar vacia", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "El telefono no puede estar vacia", "Error", JOptionPane.ERROR_MESSAGE);
                 } else if (potential.getFirst_name().trim().equals("") == true) {
-                        JOptionPane.showMessageDialog(this, "El apellido paterno no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "El nombre no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
                 } else if (potential.getLast_name().trim().equals("") == true) {
-                        JOptionPane.showMessageDialog(this, "El apellido paterno no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "El apellido no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
                 } else if (potential.getName_company().trim().equals("") == true) {
-                        JOptionPane.showMessageDialog(this, "El apellido paterno no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "El nombre de la compañia no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
                 } else if (potential.getName_adviser().trim().equals("") == true) {
-                        JOptionPane.showMessageDialog(this, "El apellido paterno no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "El nombre del asesor no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
                 } else if (potential.getCustomer_status().trim().equals("") == true) {
-                        JOptionPane.showMessageDialog(this, "El apellido paterno no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "El estado de cliente no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
                 } else if (potential.getCall_status().trim().equals("") == true) {
-                        JOptionPane.showMessageDialog(this, "El apellido paterno no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "El estado de llamada no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             
-            boolean status = MainManager.getPotentialUserManager().signUp;
+            boolean status = MainManager.getPotentialUserManager().signUpPotential(potential);
             if(status = true){
                 JOptionPane.showMessageDialog(this,"¡Usuario registrado","Registrado",JOptionPane.INFORMATION_MESSAGE);
                 int response = JOptionPane.showConfirmDialog(this, "¿Desea guardar los cambios efectuados?", "Guardar", JOptionPane.YES_NO_OPTION);
                 if (response == JOptionPane.YES_OPTION) {
                     boolean status_response = MainManager.getDatabaseManager().guardarCambios();
-                    JfrmAdviserInfo Ad = new JfrmAdviserInfo(adviser.getEmail());
+                    //JfrmAdviserInfo Ad = new JfrmAdviserInfo(potential.getEmail());
                     dispose();
                 }else if(response == JOptionPane.NO_OPTION){
                     Clean C = new Clean();
@@ -287,130 +290,19 @@ public class JfrmPotentialSignUp extends javax.swing.JFrame {
             }else {
                 JOptionPane.showMessageDialog(this, "No se pudo registrar al Usuario, verifique que no esté ya registrado.", "Error", JOptionPane.ERROR_MESSAGE);
             }
-            
-            
         }
-        
-            /*Leemos los datos del alumno*/
-            Persona persona = new Persona();
-
-            persona.setEmail(jtxfEmail.getText());
-            if (jPassword1.getText().length() >= 6) {
-                if (jPassword1.getText().equalsIgnoreCase(jPassword2.getText())) {
-                    persona.setPassword(jPassword2.getText());
-
-                } else {
-                    JOptionPane.showMessageDialog(this, "Las claves no coinciden",
-                        "Error", JOptionPane.ERROR_MESSAGE);
-                }
-
-                persona.setDni(jtxfMobile.getText());
-                if (jtxfMobile.getText().length() < 8 || jtxfMobile.getText().length() > 8) {
-                    JOptionPane.showMessageDialog(this, "DNI debe tener 8 digitos", "Error", JOptionPane.ERROR_MESSAGE);
-                } else {
-                    persona.setNombre(jtxfCompanyName.getText());
-                    persona.setApPaterno(jtxfNameAdviser.getText());
-                    persona.setApMaterno(jtxfCustomerStatus.getText());
-                    persona.setDireccion(jtxfCallStatus.getText());
-                    if (jMasc.isSelected()) {
-                        persona.setSexo("Masculino");
-                    } else if (Jfem.isSelected()) {
-                        persona.setSexo("Femenino");
-                    } else {
-                        persona.setSexo("");
-                    }
-                    persona.setNacimiento(UtilFecha.obtenerFecha(jDia.getValue().toString(), jMes.getValue().toString(), jAnio.getValue().toString()));
-                    persona.setCivil(jCivil.getSelectedItem().toString());
-                    /*Validamos los datos, usamos la versión resumida del "if-else" anidado*/
-                    if (persona.getEmail().trim().equals("") == true) {
-                        JOptionPane.showMessageDialog(this, "El Email no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
-                    } else if (persona.getPassword().trim().equals("") == true) {
-                        JOptionPane.showMessageDialog(this, "LA clave no puede estar vacia", "Error", JOptionPane.ERROR_MESSAGE);
-                    } else if (persona.getNombre().trim().equals("") == true) {
-                        JOptionPane.showMessageDialog(this, "El nombre no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
-                    } else if (persona.getApPaterno().trim().equals("") == true) {
-                        JOptionPane.showMessageDialog(this, "El apellido paterno no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
-                    } else if (persona.getApMaterno().trim().equals("") == true) {
-                        JOptionPane.showMessageDialog(this, "El apellido Materno no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
-                    } else if (persona.getDireccion().trim().equals("") == true) {
-                        JOptionPane.showMessageDialog(this, "LA direccion no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
-                    } else if (persona.getSexo().trim().equals("") == true) {
-                        System.out.println("Tiene que marcar el sexo");
-                    } else {
-                        /*Si pasamos todas las validaciones, lo registramos*/
-                        boolean estado = GestorPrincipal.getGestorUsuarioPersona().registrarPersona(persona);
-                        if (estado == true) {
-                            JOptionPane.showMessageDialog(this, "¡Usuario registrado con éxito!", "Registrado", JOptionPane.INFORMATION_MESSAGE);
-                            int respuesta = JOptionPane.showConfirmDialog(this, "¿Desea guardar los cambios efectuados?", "Guardar", JOptionPane.YES_NO_OPTION);
-                            if (respuesta == JOptionPane.YES_OPTION) {
-                                boolean estad = GestorPrincipal.getGestorBaseDeDatos().guardarCambios();
-                                JfrmPerfilPersona p = new JfrmPerfilPersona(persona.getDni());
-                                dispose();
-                            } else if (respuesta == JOptionPane.NO_OPTION) {
-                                Limpiar L = new Limpiar();
-                                
-
-                            }
-                            
-                        } else {
-                            JOptionPane.showMessageDialog(this, "No se pudo registrar al Usuario, verifique que no esté ya registrado.", "Error", JOptionPane.ERROR_MESSAGE);
-                        }
-                    }
-                }
-
-            } else {
-                JOptionPane.showMessageDialog(this, "La contraseña debe tener 6 a mas digitos",
-                    "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        JfrmPortadaP P = new JfrmPortadaP();
+        JfrmAdviserInfo Adv = new JfrmAdviserInfo(adviser_email_parameter);
         setVisible(false);
         dispose();
-        //JfrmOpciones.jPanel1.setVisible(true);
-        
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JfrmPotentialSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JfrmPotentialSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JfrmPotentialSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JfrmPotentialSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new JfrmPotentialSignUp().setVisible(true);
-            }
-        });
-    }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCancelar;

@@ -11,13 +11,14 @@ import java.util.ArrayList;
 import java.util.List;
 import mktApp.entity.Adviser;
 import mktApp.entity.ParametersLoginImpl;
+import mktApp.entity.ParametersEmailImpl;
 
 
 /**
  *
  * @author DIEGO
  */
-public class AdviserSearch extends DivideAndConquerSearch<Adviser, ParametersLoginImpl>{
+public class AdviserLoginSearch extends DivideAndConquerSearch<Adviser, ParametersLoginImpl>{
     
     @Override
     protected List<Adviser> solve(List<Adviser> lista, ParametersLoginImpl parameters) {
@@ -40,5 +41,5 @@ public class AdviserSearch extends DivideAndConquerSearch<Adviser, ParametersLog
             result.add(adviser);
         }
         return result;
-    }
+    }   
 }

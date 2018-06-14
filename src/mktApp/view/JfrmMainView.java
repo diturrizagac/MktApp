@@ -54,25 +54,25 @@ public class JfrmMainView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnrRegistrar = new javax.swing.JButton();
-        btnIniciarSesion = new javax.swing.JButton();
+        btnSignUp = new javax.swing.JButton();
+        btnSignIn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnrRegistrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnrRegistrar.setText("Registrarse");
-        btnrRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        btnSignUp.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnSignUp.setText("Registrarse");
+        btnSignUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnrRegistrarActionPerformed(evt);
+                btnSignUpActionPerformed(evt);
             }
         });
 
-        btnIniciarSesion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnIniciarSesion.setText("Iniciar Sesion");
-        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+        btnSignIn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnSignIn.setText("Iniciar Sesion");
+        btnSignIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIniciarSesionActionPerformed(evt);
+                btnSignInActionPerformed(evt);
             }
         });
 
@@ -87,9 +87,9 @@ public class JfrmMainView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(52, 52, 52)
-                        .addComponent(btnrRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(85, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -99,23 +99,25 @@ public class JfrmMainView extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnIniciarSesion)
-                    .addComponent(btnrRegistrar))
+                    .addComponent(btnSignIn)
+                    .addComponent(btnSignUp))
                 .addGap(53, 53, 53))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnrRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrRegistrarActionPerformed
-        JfrmAdviserSignUp jfrmSignUpAdviser= new JfrmAdviserSignUp();
+    private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
+        JfrmAdviserSignUp jfrmSignUpAdviser = new JfrmAdviserSignUp();
+        jfrmSignUpAdviser.setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_btnrRegistrarActionPerformed
+    }//GEN-LAST:event_btnSignUpActionPerformed
 
-    private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
+    private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
         JfrmAdviserSignIn jfrmSignIn = new JfrmAdviserSignIn();
+        jfrmSignIn.setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_btnIniciarSesionActionPerformed
+    }//GEN-LAST:event_btnSignInActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,8 +125,8 @@ public class JfrmMainView extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnIniciarSesion;
-    private javax.swing.JButton btnrRegistrar;
+    private javax.swing.JButton btnSignIn;
+    private javax.swing.JButton btnSignUp;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

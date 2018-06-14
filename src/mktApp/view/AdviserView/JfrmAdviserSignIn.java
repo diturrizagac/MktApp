@@ -15,7 +15,7 @@ import mktApp.view.JfrmMainView;
 public class JfrmAdviserSignIn extends javax.swing.JFrame {
 
     /**
-     * Creates new form JfrmInicioDeSesion
+     * Creates new form JfrmAdviserSignIn
      */
     public JfrmAdviserSignIn() {
         initComponents();

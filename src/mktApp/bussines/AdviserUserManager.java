@@ -5,12 +5,13 @@
  */
 package mktApp.bussines;
 
-import mktApp.bussines.BusquedaDAC.AdviserSearch;
+import mktApp.bussines.BusquedaDAC.AdviserLoginSearch;
 import java.util.ArrayList;
 import java.util.List;
+import mktApp.bussines.BusquedaDAC.AdviserEmailSearch;
 import mktApp.entity.Adviser;
 import mktApp.entity.ParametersLoginImpl;
-import mktApp.entity.Potential;
+import mktApp.entity.ParametersEmailImpl;
 
 /**
  *
@@ -29,10 +30,10 @@ public class AdviserUserManager extends Manager{
         
         List<Adviser> result;
         
-        AdviserSearch DYV = new AdviserSearch();
+        AdviserLoginSearch DYV = new AdviserLoginSearch();
         result = DYV.search(lsAdvisers, parameters);
         if(result.size() != 0){
-            
+            state = true;
         }
         return state;
     }
@@ -56,14 +57,16 @@ public class AdviserUserManager extends Manager{
     }
     
     //Buscar Asesor
-    public Adviser searchAdviser(String username){
-        ParametersLoginImpl parameters = new ParametersLoginImpl();
-        parameters.setUsername(username);
+    public Adviser searchAdviser(String adviser_email){
+        
+        
+        ParametersEmailImpl parameters = new ParametersEmailImpl();
+        parameters.setEmail(adviser_email);
         
         List<Adviser> lsAdvisers = dataBase.getAdvisers();
         List<Adviser> advisersAux;
         
-        AdviserSearch DYV = new AdviserSearch();
+        AdviserEmailSearch DYV = new AdviserEmailSearch();
         advisersAux = DYV.search(lsAdvisers, parameters);
         return advisersAux.get(0);
     }
