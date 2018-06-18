@@ -18,7 +18,7 @@ import mktApp.entity.ParametersLoginImpl;
  */
 public class AccountUserManager extends Manager{
     //IniciarSesion
-    public boolean signInAccount(Account account) { //iniciar sesion
+    /*public boolean signInAccount(Account account) { //iniciar sesion
         boolean state = false;
         
         List<Account> accounts = dataBase.getAccounts();
@@ -35,7 +35,7 @@ public class AccountUserManager extends Manager{
             
         }
         return state;
-    }
+    }*/
     
     //Tamanio de Arreglo
     public int getSize(){
@@ -43,7 +43,7 @@ public class AccountUserManager extends Manager{
         return accounts.size();
     }
     
-    //Registro Asesor
+    //Registro Cuenta
     public boolean signUpAccount(Account account){ //registrarse
         boolean status = false;
         
@@ -55,8 +55,8 @@ public class AccountUserManager extends Manager{
         return status;
     }
     
-    //Buscar Asesor
-    public Account searchAdviser(String username){
+    //Buscar Cuenta
+    /*public Account searchAccount(String username){
         ParametersLoginImpl parameters = new ParametersLoginImpl();
         parameters.setUsername(username);
         
@@ -66,20 +66,20 @@ public class AccountUserManager extends Manager{
         AccountSearch DYV = new AccountSearch();
         accountsAux = DYV.search(lsAccounts, parameters);
         return accountsAux.get(0);
-    }
+    }*/
     
-    //Validar Asesor
+    //Validar Cuenta
     public Account validateAccount(String username){
         Account account = null;
         
         ArrayList<Account> Accounts = dataBase.getAccounts();
-        Account accountsAux = null;
+        Account accountAux = null;
         
         for(int i=0; i<Accounts.size(); i++){
-            accountsAux = Accounts.get(i);
+            accountAux = Accounts.get(i);
             
-            if(username.trim().equalsIgnoreCase(accountsAux.getEmail()) == true){
-                account = accountsAux;
+            if(username.trim().equalsIgnoreCase(accountAux.getEmail()) == true){
+                account = accountAux;
                 i = Accounts.size()+1;
             }       
         }
@@ -87,14 +87,14 @@ public class AccountUserManager extends Manager{
     }
     
     //Mostrar lista de cuentas de un asesor
-    public ArrayList<Account> searchAccounts(String adviser_name){
+    public ArrayList<Account> searchAccounts(String adviser_email){
         ArrayList<Account> lsAccounts = dataBase.getAccounts();
         ArrayList<Account> result = new ArrayList<>();
         Account accountAux = null;
         
         for(int i=0; i<lsAccounts.size(); i++){
             accountAux = lsAccounts.get(i);
-            if(adviser_name.trim().equalsIgnoreCase(accountAux.getEmail()) == true){
+            if(adviser_email.trim().equalsIgnoreCase(accountAux.getEmail_adviser()) == true){
                 result.add(accountAux);
             }
         }

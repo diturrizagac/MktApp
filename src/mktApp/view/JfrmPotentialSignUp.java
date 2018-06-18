@@ -19,13 +19,13 @@ import mktApp.view.AdviserView.JfrmAdviserInfo;
 
 /**
  *
- * @author Diego Iturrizaga
+ * @author DIEGO
  */
 public class JfrmPotentialSignUp extends javax.swing.JFrame {
     String adviser_email_parameter;
 
     /**
-     * Creates new form JpanRegistrarPerson
+     * Creates new form JfrmPotentialSignUp
      */
     public JfrmPotentialSignUp(String email_paramter) {
         initComponents();
@@ -228,7 +228,6 @@ public class JfrmPotentialSignUp extends javax.swing.JFrame {
             potential.setEmail_adviser(adviser_email_parameter);
             potential.setCustomer_status(jtxfCustomerStatus.getText());
             potential.setCall_status(jtxfCallStatus.getText());
-            
             if (potential.getEmail().trim().equals("") == true) {
                 JOptionPane.showMessageDialog(this, "El Email no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
             } else if (potential.getMobile().trim().equals("") == true) {

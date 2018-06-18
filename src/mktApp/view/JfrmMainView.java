@@ -16,13 +16,13 @@ import mktApp.view.AdviserView.JfrmAdviserSignUp;
 
 /**
  *
- * @author Diego Iturrizaga
+ * @author DIEGO
  */
 public class JfrmMainView extends javax.swing.JFrame {
     String area,puesto,ubicacion;
 
     /**
-     * Creates new form JfrmPortadaP
+     * Creates new form JfrmMainView
      */
     public JfrmMainView() {
         initComponents();

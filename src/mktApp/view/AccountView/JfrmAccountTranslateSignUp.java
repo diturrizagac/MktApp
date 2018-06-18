@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 
-package mktApp.view;
-
+package mktApp.view.AccountView;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -22,12 +21,12 @@ import mktApp.view.AdviserView.JfrmAdviserInfo;
  *
  * @author DIEGO
  */
-public class JfrmAccountSignUp extends javax.swing.JFrame {
+public class JfrmAccountTranslateSignUp extends javax.swing.JFrame {
     String  adviser_email_parameter;
     /**
-     * Creates new form JfrmAccountSignUp
+     * Creates new form JfrmAccountTranslateSignUp
      */
-    public JfrmAccountSignUp(String email_parameter) {
+    public JfrmAccountTranslateSignUp(String email_parameter) {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -56,7 +55,6 @@ public class JfrmAccountSignUp extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jtxfEmail = new javax.swing.JTextField();
-        jtxfCompanyName = new javax.swing.JTextField();
         jtxfMobile = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jtxfCombo = new javax.swing.JTextField();
@@ -70,6 +68,7 @@ public class JfrmAccountSignUp extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jtxfFirstName = new javax.swing.JTextField();
         jtxfLastName = new javax.swing.JTextField();
+        jlblCompanyName = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,7 +120,7 @@ public class JfrmAccountSignUp extends javax.swing.JFrame {
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("REGISTRO DE CUENTA");
+        jLabel16.setText("TRANSFERENCIA A CUENTA");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -144,27 +143,30 @@ public class JfrmAccountSignUp extends javax.swing.JFrame {
                             .addComponent(jLabel6))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jtxfPayMethod, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jtxfMobile, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtxfCompanyName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtxfCombo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jlblCompanyName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jtxfLastName, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jtxfEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
-                                            .addComponent(jtxfFirstName, javax.swing.GroupLayout.Alignment.LEADING))
-                                        .addGap(27, 27, 27)
-                                        .addComponent(jLabel1))))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jtxfMobile, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jtxfCombo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                    .addComponent(jtxfLastName, javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jtxfEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
+                                                    .addComponent(jtxfFirstName, javax.swing.GroupLayout.Alignment.LEADING))
+                                                .addGap(27, 27, 27)
+                                                .addComponent(jLabel1)))
+                                        .addGap(0, 0, Short.MAX_VALUE))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(171, 171, 171)
                         .addComponent(btnAceptar)
                         .addGap(109, 109, 109)
                         .addComponent(btnCancelar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,8 +188,8 @@ public class JfrmAccountSignUp extends javax.swing.JFrame {
                             .addComponent(jtxfLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jtxfCompanyName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3)
+                            .addComponent(jlblCompanyName, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jtxfMobile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -224,8 +226,7 @@ public class JfrmAccountSignUp extends javax.swing.JFrame {
             account.setEmail(jtxfEmail.getText());
             account.setFirst_name(jtxfFirstName.getText());
             account.setLast_name(jtxfLastName.getText());
-            account.setName_account(jtxfCompanyName.getText());
-            account.setEmail_adviser(adviser_email_parameter);
+            //account.setName_account(jlblCompanyName.getText());
             account.setMobile(jtxfMobile.getText());
             account.setName_combo(jtxfCombo.getText());
             account.setPay_method(jtxfPayMethod.getText());
@@ -287,8 +288,8 @@ public class JfrmAccountSignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jlblCompanyName;
     private javax.swing.JTextField jtxfCombo;
-    private javax.swing.JTextField jtxfCompanyName;
     private javax.swing.JTextField jtxfEmail;
     private javax.swing.JTextField jtxfFirstName;
     private javax.swing.JTextField jtxfLastName;

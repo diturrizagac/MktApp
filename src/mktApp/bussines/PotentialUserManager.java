@@ -18,7 +18,7 @@ import mktApp.entity.Potential;
 public class PotentialUserManager extends Manager{
     
     //IniciarSesion
-    public boolean singInPotential(Potential potential) { //iniciar sesion
+    /*public boolean singInPotential(Potential potential) { //iniciar sesion
         boolean state = false;
         
         List<Potential> potentials = dataBase.getPotentials();
@@ -35,7 +35,7 @@ public class PotentialUserManager extends Manager{
             
         }
         return state;
-    }
+    }*/
     
     public int getSize(){
         ArrayList<Potential> potentials = dataBase.getPotentials();
@@ -43,19 +43,19 @@ public class PotentialUserManager extends Manager{
     }
     
     //Registro Potencial Cliente
-    public boolean signUpPotential(Potential adviser){ //registrarse
+    public boolean signUpPotential(Potential potential){ //registrarse
         boolean status = false;
         
-        Potential adviserAux = validatePotential(adviser.getEmail());
-        if(adviserAux == null){
-            dataBase.getPotentials().add(adviser);
+        Potential potentialAux = validatePotential(potential.getEmail());
+        if(potentialAux == null){
+            dataBase.getPotentials().add(potential);
             status = true;
         }
         return status;
     }
     
     //Buscar Potencial Cliente 
-    public Potential searchPotential(String nameAdviser){
+    /*public Potential searchPotential(String nameAdviser){
         ParametersLoginImpl parameters = new ParametersLoginImpl();
         parameters.setUsername(nameAdviser);
         
@@ -65,21 +65,21 @@ public class PotentialUserManager extends Manager{
         PotentialSearch DYV = new PotentialSearch();
         potentialAux = DYV.search(lsPotentials, parameters);
         return potentialAux.get(0);
-    }    
+    }    */
     
     //Validar Potencial Cliente
     public Potential validatePotential(String username){
         Potential potential = null;
         
-        ArrayList<Potential> Potential = dataBase.getPotentials();
+        ArrayList<Potential> Potentials = dataBase.getPotentials();
         Potential potentialAux = null;
         
-        for(int i=0; i<Potential.size(); i++){
-            potentialAux = Potential.get(i);
+        for(int i=0; i<Potentials.size(); i++){
+            potentialAux = Potentials.get(i);
             
             if(username.trim().equalsIgnoreCase(potentialAux.getEmail()) == true){
                 potential = potentialAux;
-                i = Potential.size()+1;
+                i = Potentials.size()+1;
             }       
         }
         return potential;

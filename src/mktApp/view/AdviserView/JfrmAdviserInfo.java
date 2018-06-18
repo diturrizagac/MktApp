@@ -16,7 +16,7 @@ import mktApp.view.JfrmAccountSignUp;
 
 /**
  *
- * @author Diego Iturrizaga
+ * @author DIEGO
  */
 public class JfrmAdviserInfo extends javax.swing.JFrame {
     
@@ -24,7 +24,7 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
     Adviser adviser = null;
     
     /**
-     * Creates new form JfrmAdviserSignIn
+     * Creates new form JfrmAdviserInfo
      */
 
     public JfrmAdviserInfo(String email) {
@@ -43,7 +43,6 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
         this.adviser_email = email;
         adviser = MainManager.getAdviserUserManager().searchAdviser(email);  
         iniciarComponentes();
-        
     }
 
     public void iniciarComponentes() {
@@ -289,7 +288,7 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
         jPanelPublicarAnuncios.add(jLabel9);
         jLabel9.setBounds(40, 170, 190, 16);
 
-        btnPotentialToAccount.setText("Crear Cuenta");
+        btnPotentialToAccount.setText("Pasar Cuenta");
         jPanelPublicarAnuncios.add(btnPotentialToAccount);
         btnPotentialToAccount.setBounds(530, 30, 140, 80);
 
@@ -509,6 +508,7 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
             } else {
                 Account account = null;
                 for(int i=0; i<Acc.size(); i++){
+                    account = Acc.get(i);
                     jtblShowAccounts.getModel().setValueAt(account.getName_account(), i, 0);
                     jtblShowAccounts.getModel().setValueAt(account.getEmail(), i, 1);
                     jtblShowAccounts.getModel().setValueAt(account.getMobile(), i, 2);

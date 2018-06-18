@@ -23,6 +23,10 @@ import mktApp.view.JfrmMainView;
  * @author DIEGO
  */
 public class JfrmAdviserSignUp extends javax.swing.JFrame {
+    
+    /**
+     * Creates new form JfrmAdviserSignUp
+     */
     public JfrmAdviserSignUp() {
         initComponents();
         setLocationRelativeTo(null);
