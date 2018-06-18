@@ -87,14 +87,14 @@ public class PotentialUserManager extends Manager{
     
     //Traer los potenciales clientes
     
-    public ArrayList<Potential> searchPotentials(String adviser_name){
+    public ArrayList<Potential> searchPotentials(String adviser_email){
         ArrayList<Potential> lsPotentials = dataBase.getPotentials();
         ArrayList<Potential> result = new ArrayList<>();
         Potential potentialAux = null;
         
         for(int i=0; i<lsPotentials.size(); i++){
             potentialAux = lsPotentials.get(i);
-            if(adviser_name.trim().equalsIgnoreCase(potentialAux.getName_adviser()) == true){
+            if(adviser_email.trim().equalsIgnoreCase(potentialAux.getEmail_adviser()) == true){
                 result.add(potentialAux);
             }
         }

@@ -21,7 +21,7 @@ public class JfrmAdviserSignIn extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("Agencia de Empleos");
+        setTitle("MARKETING DIGITAL");
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/icono.png")).getImage());
         ((JPanel)getContentPane()).setOpaque(false);
         ImageIcon uno=new ImageIcon(this.getClass().getResource("/imagenes/Fondo2.jpg"));
@@ -142,16 +142,16 @@ public class JfrmAdviserSignIn extends javax.swing.JFrame {
 
         /*Creamos la instancia*/
         try {
-            if (userLocal.length() > 8) {
+            if (userLocal.length() > 11) {
                 Adviser adviser = new Adviser();
                 adviser.setEmail(userLocal);
                 adviser.setPassword(passLocal);
                 
                 /*Usamos el "Gestor Asesor" para validar los datos*/
                 Adviser Ad = MainManager.getAdviserUserManager().validateAdviser(userLocal);
-                
                 if (Ad != null){
                     JfrmAdviserInfo adviserInfo = new JfrmAdviserInfo(Ad.getEmail());
+                    this.dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "El usuario y contraseña no coinciden", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -160,17 +160,19 @@ public class JfrmAdviserSignIn extends javax.swing.JFrame {
             System.out.println("Error");
         }
 
-        try {
+        
+        /*try {
             if (userLocal.length() <= 8) { 
                 Account account = new Account();
                 account.setEmail(userLocal);
                 account.setPassword(passLocal);
-                /*Usamos el "Gestor Cuenta" para validar los datos*/
+                //Usamos el "Gestor Cuenta" para validar los datos
                 boolean state = MainManager.getAccountUserManager().signInAccount(account);
                 
                 if (state == true){
                     Account Acc = MainManager.getAccountUserManager().validateAccount(userLocal);
                     JfrmAdviserInfo jpanAccountInfo = new JfrmAdviserInfo(Acc.getEmail());
+                    
                 } else {
                     JOptionPane.showMessageDialog(this, "El usuario y contraseña no coinciden", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -178,7 +180,7 @@ public class JfrmAdviserSignIn extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("error");
-        }
+        }*/
     }//GEN-LAST:event_btnAceptarISActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

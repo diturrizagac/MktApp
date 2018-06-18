@@ -11,7 +11,6 @@ import mktApp.bussines.BusquedaDAC.AccountSearch;
 import static mktApp.bussines.Manager.dataBase;
 import mktApp.entity.Account;
 import mktApp.entity.ParametersLoginImpl;
-import mktApp.entity.Potential;
 
 /**
  *
@@ -95,7 +94,7 @@ public class AccountUserManager extends Manager{
         
         for(int i=0; i<lsAccounts.size(); i++){
             accountAux = lsAccounts.get(i);
-            if(adviser_name.trim().equalsIgnoreCase(accountAux.getName_adviser()) == true){
+            if(adviser_name.trim().equalsIgnoreCase(accountAux.getEmail()) == true){
                 result.add(accountAux);
             }
         }

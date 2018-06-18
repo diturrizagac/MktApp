@@ -13,7 +13,6 @@ import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import mktApp.bussines.MainManager;
-import mktApp.entity.Adviser;
 import mktApp.entity.Potential;
 import mktApp.utility.Clean;
 import mktApp.view.AdviserView.JfrmAdviserInfo;
@@ -32,7 +31,7 @@ public class JfrmPotentialSignUp extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("Agencia de Empleos");
+        setTitle("MARKETING DIGITAL");
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/icono.png")).getImage());
         ((JPanel)getContentPane()).setOpaque(false);
         ImageIcon uno=new ImageIcon(this.getClass().getResource("/imagenes/fondo3.jpg"));
@@ -60,8 +59,6 @@ public class JfrmPotentialSignUp extends javax.swing.JFrame {
         jtxfMobile = new javax.swing.JTextField();
         jtxfCompanyName = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jtxfNameAdviser = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jtxfCustomerStatus = new javax.swing.JTextField();
         btnAceptar = new javax.swing.JButton();
@@ -88,19 +85,9 @@ public class JfrmPotentialSignUp extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Celular : ");
 
-        jtxfEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxfEmailActionPerformed(evt);
-            }
-        });
-
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Nombre de Compañia : ");
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Nombre de Asesor :");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -146,27 +133,18 @@ public class JfrmPotentialSignUp extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addComponent(jLabel16))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jLabel5)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel2)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(65, 65, 65)
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6))
+                        .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jtxfCustomerStatus)
-                            .addComponent(jtxfNameAdviser)
                             .addComponent(jtxfCompanyName)
                             .addComponent(jtxfMobile)
                             .addComponent(jtxfEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
@@ -185,7 +163,7 @@ public class JfrmPotentialSignUp extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
@@ -194,39 +172,38 @@ public class JfrmPotentialSignUp extends javax.swing.JFrame {
                                 .addGap(79, 79, 79)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jtxfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jtxfFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel2)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(11, 11, 11)
                                 .addComponent(jLabel16)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15)
-                            .addComponent(jtxfLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(10, 10, 10)
+                            .addComponent(jtxfFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtxfLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jtxfMobile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jtxfMobile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jtxfCompanyName, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtxfNameAdviser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(13, 13, 13)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtxfCustomerStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtxfCompanyName, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxfCustomerStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtxfCallStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxfCallStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAceptar)
                     .addComponent(btnCancelar))
@@ -236,59 +213,53 @@ public class JfrmPotentialSignUp extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtxfEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxfEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxfEmailActionPerformed
-
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        /*Leemos los datos del alumno*/
+        /*Leemos los datos del cliente potencial*/
         Potential potential = new Potential();
-        
-        
-        
-        if (jtxfMobile.getText().length() < 8 || jtxfMobile.getText().length() > 8) {
-            JOptionPane.showMessageDialog(this, "DNI debe tener 8 digitos", "Error", JOptionPane.ERROR_MESSAGE);
+
+        if (jtxfMobile.getText().length() < 9 || jtxfMobile.getText().length() > 9) {
+            JOptionPane.showMessageDialog(this, "El número debe tener 9 digitos", "Error", JOptionPane.ERROR_MESSAGE);
         }else{
             potential.setEmail(jtxfEmail.getText());
             potential.setFirst_name(jtxfFirstName.getText());
             potential.setLast_name(jtxfFirstName.getText());
             potential.setMobile(jtxfMobile.getText());
             potential.setName_company(jtxfCompanyName.getText());
-            potential.setName_adviser(jtxfNameAdviser.getText());
+            potential.setEmail_adviser(adviser_email_parameter);
             potential.setCustomer_status(jtxfCustomerStatus.getText());
             potential.setCall_status(jtxfCallStatus.getText());
             
             if (potential.getEmail().trim().equals("") == true) {
                 JOptionPane.showMessageDialog(this, "El Email no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if (potential.getMobile().trim().equals("") == true) {
-                    JOptionPane.showMessageDialog(this, "El telefono no puede estar vacia", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if (potential.getFirst_name().trim().equals("") == true) {
-                        JOptionPane.showMessageDialog(this, "El nombre no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if (potential.getLast_name().trim().equals("") == true) {
-                        JOptionPane.showMessageDialog(this, "El apellido no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if (potential.getName_company().trim().equals("") == true) {
-                        JOptionPane.showMessageDialog(this, "El nombre de la compañia no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if (potential.getName_adviser().trim().equals("") == true) {
-                        JOptionPane.showMessageDialog(this, "El nombre del asesor no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if (potential.getCustomer_status().trim().equals("") == true) {
-                        JOptionPane.showMessageDialog(this, "El estado de cliente no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if (potential.getCall_status().trim().equals("") == true) {
-                        JOptionPane.showMessageDialog(this, "El estado de llamada no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (potential.getMobile().trim().equals("") == true) {
+                JOptionPane.showMessageDialog(this, "El telefono no puede estar vacia", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (potential.getFirst_name().trim().equals("") == true) {
+                JOptionPane.showMessageDialog(this, "El nombre no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (potential.getLast_name().trim().equals("") == true) {
+                JOptionPane.showMessageDialog(this, "El apellido no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (potential.getName_company().trim().equals("") == true) {
+                JOptionPane.showMessageDialog(this, "El nombre de la compañia no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+            /*} else if (potential.getEmail_adviser().trim().equals("") == true) {
+                JOptionPane.showMessageDialog(this, "El nombre del asesor no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);*/
+            } else if (potential.getCustomer_status().trim().equals("") == true) {
+                JOptionPane.showMessageDialog(this, "El estado de cliente no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (potential.getCall_status().trim().equals("") == true) {
+                JOptionPane.showMessageDialog(this, "El estado de llamada no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                boolean status = MainManager.getPotentialUserManager().signUpPotential(potential);
+                if (status == true) {
+                    JOptionPane.showMessageDialog(this, "¡Usuario registrado", "Registrado", JOptionPane.INFORMATION_MESSAGE);
+                    int response = JOptionPane.showConfirmDialog(this, "¿Desea guardar los cambios efectuados?", "Guardar", JOptionPane.YES_NO_OPTION);
+                    if (response == JOptionPane.YES_OPTION) {
+                        boolean status_response = MainManager.getDatabaseManager().guardarCambios();
+                        JfrmAdviserInfo Ad = new JfrmAdviserInfo(adviser_email_parameter);
+                        this.dispose();
+                    } else if (response == JOptionPane.NO_OPTION) {
+                        Clean C = new Clean();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "No se pudo registrar al Usuario, verifique que no esté ya registrado.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-            
-            boolean status = MainManager.getPotentialUserManager().signUpPotential(potential);
-            if(status = true){
-                JOptionPane.showMessageDialog(this,"¡Usuario registrado","Registrado",JOptionPane.INFORMATION_MESSAGE);
-                int response = JOptionPane.showConfirmDialog(this, "¿Desea guardar los cambios efectuados?", "Guardar", JOptionPane.YES_NO_OPTION);
-                if (response == JOptionPane.YES_OPTION) {
-                    boolean status_response = MainManager.getDatabaseManager().guardarCambios();
-                    //JfrmAdviserInfo Ad = new JfrmAdviserInfo(potential.getEmail());
-                    dispose();
-                }else if(response == JOptionPane.NO_OPTION){
-                    Clean C = new Clean();
-                }
-            }else {
-                JOptionPane.showMessageDialog(this, "No se pudo registrar al Usuario, verifique que no esté ya registrado.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
@@ -313,7 +284,6 @@ public class JfrmPotentialSignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField jtxfCallStatus;
@@ -323,6 +293,5 @@ public class JfrmPotentialSignUp extends javax.swing.JFrame {
     private javax.swing.JTextField jtxfFirstName;
     private javax.swing.JTextField jtxfLastName;
     private javax.swing.JTextField jtxfMobile;
-    private javax.swing.JTextField jtxfNameAdviser;
     // End of variables declaration//GEN-END:variables
 }

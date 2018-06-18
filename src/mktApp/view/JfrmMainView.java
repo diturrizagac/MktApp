@@ -28,7 +28,7 @@ public class JfrmMainView extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("Agencia de Empleos");
+        setTitle("MARKETING DIGITAL");
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/icono.png")).getImage());
         ((JPanel)getContentPane()).setOpaque(false);
         ImageIcon uno=new ImageIcon(this.getClass().getResource("/imagenes/fondo3.jpg"));

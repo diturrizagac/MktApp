@@ -12,24 +12,21 @@ import java.io.Serializable;
  */
 public class Account extends User implements Serializable{
     
-    private String name_adviser;
-    private String name_account;
-    private String firstname_adviser;
-    private String lastname_adviser;
-    private String name_combo;
+    private String email_adviser;
     private String mobile;
+    private String name_account;
+    private String name_combo;
     private String pay_method;
     
-   
     public Account() {
     }
 
-    public String getName_adviser() {
-        return name_adviser;
+    public String getEmail_adviser() {
+        return email_adviser;
     }
 
-    public void setName_adviser(String name_adviser) {
-        this.name_adviser = name_adviser;
+    public void setEmail_adviser(String email_adviser) {
+        this.email_adviser = email_adviser;
     }
     
     public String getName_account() {
@@ -38,22 +35,6 @@ public class Account extends User implements Serializable{
 
     public void setName_account(String name_account) {
         this.name_account = name_account;
-    }
-
-    public String getFirstname_adviser() {
-        return firstname_adviser;
-    }
-
-    public void setFirstname_adviser(String firstname_adviser) {
-        this.firstname_adviser = firstname_adviser;
-    }
-
-    public String getLastname_adviser() {
-        return lastname_adviser;
-    }
-
-    public void setLastname_adviser(String lastname_adviser) {
-        this.lastname_adviser = lastname_adviser;
     }
 
     public String getName_combo() {

@@ -6,7 +6,7 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Archivo"/>
+            <Property name="text" type="java.lang.String" value="Opciones"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jSalir">
@@ -14,7 +14,7 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+Q"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Salir"/>
+                <Property name="text" type="java.lang.String" value="Cerrar Sesi&#xf3;n"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jSalirActionPerformed"/>
@@ -53,7 +53,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPaneVerPubl" pref="719" max="32767" attributes="0"/>
+              <Component id="jTabbedPaneVerPubl" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -130,9 +130,9 @@
                               <Component id="jLabelFirstName" max="32767" attributes="0"/>
                               <Component id="jLabelLastName" max="32767" attributes="0"/>
                               <Component id="jLabelEmail" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabelfono" alignment="0" pref="248" max="32767" attributes="0"/>
+                              <Component id="jLabelRole" alignment="0" pref="248" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="298" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -157,7 +157,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jLabeDireccion" min="-2" pref="16" max="-2" attributes="0"/>
-                              <Component id="jLabelfono" min="-2" pref="18" max="-2" attributes="0"/>
+                              <Component id="jLabelRole" min="-2" pref="18" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="73" max="32767" attributes="0"/>
                       </Group>
@@ -167,22 +167,22 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="First Name: "/>
+                    <Property name="text" type="java.lang.String" value="Nombre :"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel3">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Last Name: "/>
+                    <Property name="text" type="java.lang.String" value="Apellido : "/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabeDireccion">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="..."/>
+                    <Property name="text" type="java.lang.String" value="Cargo : "/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabelDireccion1">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Email:"/>
+                    <Property name="text" type="java.lang.String" value="Correo :"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabelFirstName">
@@ -191,7 +191,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabelEmail">
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelfono">
+                <Component class="javax.swing.JLabel" name="jLabelRole">
                 </Component>
               </SubComponents>
             </Container>
@@ -226,14 +226,14 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="10" width="180" height="-1"/>
+                  <AbsoluteConstraints x="10" y="10" width="200" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane2">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="70" width="690" height="330"/>
+                  <AbsoluteConstraints x="10" y="50" width="690" height="350"/>
                 </Constraint>
               </Constraints>
 
@@ -290,7 +290,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="220" y="10" width="170" height="-1"/>
+                  <AbsoluteConstraints x="220" y="10" width="180" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -299,8 +299,8 @@
         <Container class="javax.swing.JPanel" name="jPanelPublicarAnuncios">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Hacer publicaciones">
-                <Property name="tabTitle" type="java.lang.String" value="Hacer publicaciones"/>
+              <JTabbedPaneConstraints tabName="Actualizaci&#xf3;n de Datos">
+                <Property name="tabTitle" type="java.lang.String" value="Actualizaci&#xf3;n de Datos"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -309,214 +309,77 @@
             <Property name="useNullLayout" type="boolean" value="true"/>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel5">
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="40" y="130" width="660" height="40"/>
-                </Constraint>
-              </Constraints>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                          <Component id="jboxRubro2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jboxCargo2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jboxUbicacion2" min="-2" pref="133" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jboxUbicacion2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jboxCargo2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jboxRubro2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JComboBox" name="jboxUbicacion2">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="39">
-                        <StringItem index="0" value="Seleccione Ubicacion"/>
-                        <StringItem index="1" value="Ate"/>
-                        <StringItem index="2" value="Barranco"/>
-                        <StringItem index="3" value="Bellavista"/>
-                        <StringItem index="4" value="Bre&#xf1;a"/>
-                        <StringItem index="5" value="Callao"/>
-                        <StringItem index="6" value="Carmen de la Legua"/>
-                        <StringItem index="7" value="Cercado de Lima"/>
-                        <StringItem index="8" value="Cercado de Lima"/>
-                        <StringItem index="9" value="Chorrillos"/>
-                        <StringItem index="10" value="Comas"/>
-                        <StringItem index="11" value="El Agustino"/>
-                        <StringItem index="12" value="Independencia"/>
-                        <StringItem index="13" value="Jes&#xfa;s Mar&#xed;a"/>
-                        <StringItem index="14" value="La Molina"/>
-                        <StringItem index="15" value="La Perla"/>
-                        <StringItem index="16" value="La Punta"/>
-                        <StringItem index="17" value="La Victoria"/>
-                        <StringItem index="18" value="Lince"/>
-                        <StringItem index="19" value="Los Olivos"/>
-                        <StringItem index="20" value="Magdalena del Mar"/>
-                        <StringItem index="21" value="Miraflores"/>
-                        <StringItem index="22" value="Pueblo Libre"/>
-                        <StringItem index="23" value="Puente Piedra"/>
-                        <StringItem index="24" value="Rimac"/>
-                        <StringItem index="25" value="San Borja"/>
-                        <StringItem index="26" value="San Isidro"/>
-                        <StringItem index="27" value="San Juan de Lurigancho"/>
-                        <StringItem index="28" value="San Juan de Miraflores"/>
-                        <StringItem index="29" value="San Luis"/>
-                        <StringItem index="30" value="San Martin de Porres"/>
-                        <StringItem index="31" value="San Miguel"/>
-                        <StringItem index="32" value="Santa Anita"/>
-                        <StringItem index="33" value="Santa Rosa"/>
-                        <StringItem index="34" value="Santiago de Surco"/>
-                        <StringItem index="35" value="Surquillo"/>
-                        <StringItem index="36" value="Ventanilla"/>
-                        <StringItem index="37" value="Villa El Savador"/>
-                        <StringItem index="38" value="Villa Mar&#xed;a del Triunfo"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="jboxCargo2">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="10">
-                        <StringItem index="0" value="Seleccione Cargo"/>
-                        <StringItem index="1" value="Analista/Asistente"/>
-                        <StringItem index="2" value="Ejecutivo Comercial"/>
-                        <StringItem index="3" value="Gerencia"/>
-                        <StringItem index="4" value="Jefe / Supervisor"/>
-                        <StringItem index="5" value="Practicante"/>
-                        <StringItem index="6" value="Tecnicos Operativos"/>
-                        <StringItem index="7" value="Formador"/>
-                        <StringItem index="8" value="Vendedor"/>
-                        <StringItem index="9" value="Otros"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="jboxRubro2">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="22">
-                        <StringItem index="0" value="Seleccione un Rubro"/>
-                        <StringItem index="1" value="Administracion/Servicios Generales"/>
-                        <StringItem index="2" value="Auditoria"/>
-                        <StringItem index="3" value="Banca"/>
-                        <StringItem index="4" value="Comercial"/>
-                        <StringItem index="5" value="Comercio Exterior/Aduanas"/>
-                        <StringItem index="6" value="Compras/Logistica"/>
-                        <StringItem index="7" value="Consultoria"/>
-                        <StringItem index="8" value="Contabilidad"/>
-                        <StringItem index="9" value="Finanzas"/>
-                        <StringItem index="10" value="Hoteleria/Turismo/Restaurantes"/>
-                        <StringItem index="11" value="Ingenieria"/>
-                        <StringItem index="12" value="Investigacion y Desarrollo"/>
-                        <StringItem index="13" value="Legal"/>
-                        <StringItem index="14" value="Marketing/Publicidad"/>
-                        <StringItem index="15" value="Medios Digitales / Internet"/>
-                        <StringItem index="16" value="Recursos Humanos"/>
-                        <StringItem index="17" value="Seguridad Salud Ocupacional y Medio Ambiente"/>
-                        <StringItem index="18" value="Sistemas"/>
-                        <StringItem index="19" value="Ventas"/>
-                        <StringItem index="20" value="Otros"/>
-                        <StringItem index="21" value=" "/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Telefono"/>
+                <Property name="text" type="java.lang.String" value="Correo :"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="50" y="220" width="60" height="-1"/>
+                  <AbsoluteConstraints x="90" y="210" width="60" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextDescripcion">
+            <Component class="javax.swing.JTextField" name="jtxfPotentialEmail">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="190" y="60" width="400" height="60"/>
+                  <AbsoluteConstraints x="260" y="70" width="230" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Razon Social:"/>
+                <Property name="text" type="java.lang.String" value="Correo de cliente potencial : "/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="60" y="30" width="80" height="-1"/>
+                  <AbsoluteConstraints x="90" y="60" width="180" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
+            <Component class="javax.swing.JTextField" name="jtxfEmail">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="150" y="220" width="140" height="20"/>
+                  <AbsoluteConstraints x="260" y="210" width="230" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Descripcion:"/>
+                <Property name="text" type="java.lang.String" value="PASAR DE POTENCIAL A CUENTA"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="60" y="60" width="100" height="-1"/>
+                  <AbsoluteConstraints x="40" y="20" width="200" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
-                <Property name="text" type="java.lang.String" value=" Web"/>
+                <Property name="text" type="java.lang.String" value="ACTUALIZAR DATOS "/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="50" y="190" width="60" height="-1"/>
+                  <AbsoluteConstraints x="40" y="170" width="190" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField10">
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="150" y="190" width="450" height="20"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JButton" name="JPublicarAnuncio">
+            <Component class="javax.swing.JButton" name="btnPotentialToAccount">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Publicar Anuncio"/>
+                <Property name="text" type="java.lang.String" value="Crear Cuenta"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="450" y="280" width="140" height="-1"/>
+                  <AbsoluteConstraints x="530" y="30" width="140" height="80"/>
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel1razonbuscar">
+            <Component class="javax.swing.JButton" name="btnUpdate">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Actualizar"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="190" y="20" width="390" height="30"/>
+                  <AbsoluteConstraints x="530" y="190" width="140" height="80"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -525,8 +388,8 @@
         <Container class="javax.swing.JPanel" name="jPanelVerAnuncios">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Cuentas">
-                <Property name="tabTitle" type="java.lang.String" value="Cuentas"/>
+              <JTabbedPaneConstraints tabName="Cuentas de Clientes">
+                <Property name="tabTitle" type="java.lang.String" value="Cuentas de Clientes"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -561,15 +424,15 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jtblAnuncios">
+                <Component class="javax.swing.JTable" name="jtblShowAccounts">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="5" rowCount="100">
                         <Column editable="false" title="Empresa" type="java.lang.String"/>
-                        <Column editable="false" title="Rubro" type="java.lang.String"/>
-                        <Column editable="false" title="Cargo" type="java.lang.String"/>
-                        <Column editable="false" title="PagWeb" type="java.lang.String"/>
-                        <Column editable="true" title="Descripcion" type="java.lang.String"/>
+                        <Column editable="false" title="Correo" type="java.lang.String"/>
+                        <Column editable="false" title="Telefono" type="java.lang.String"/>
+                        <Column editable="false" title="Combo" type="java.lang.String"/>
+                        <Column editable="true" title="Metodo de Pago" type="java.lang.String"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -611,6 +474,19 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JButton" name="btnAddAccount">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Agregar Nueva Cuenta"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddAccountActionPerformed"/>
+              </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="170" y="10" width="190" height="-1"/>
+                </Constraint>
+              </Constraints>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>

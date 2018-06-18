@@ -7,10 +7,12 @@ import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import mktApp.bussines.MainManager;
+import mktApp.entity.Account;
 import mktApp.entity.Adviser;
 import mktApp.entity.Potential;
 import mktApp.view.JfrmMainView;
 import mktApp.view.JfrmPotentialSignUp;
+import mktApp.view.JfrmAccountSignUp;
 
 /**
  *
@@ -29,7 +31,7 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("CRM MKT");
+        setTitle("MARKETING DIGITAL");
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/icono.png")).getImage());
         ((JPanel)getContentPane()).setOpaque(false);
         ImageIcon uno=new ImageIcon(this.getClass().getResource("/imagenes/fondo3.jpg"));
@@ -52,7 +54,7 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
         jLabelFirstName.setText(adviser.getFirst_name());
         jLabelEmail.setText(adviser.getEmail());
         JlabelSubtittle.setText("Welcome  " + adviser.getFirst_name());
-
+        jLabelRole.setText(adviser.getRole_job());
     }
     
     @SuppressWarnings("unchecked")
@@ -69,7 +71,7 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
         jLabelFirstName = new javax.swing.JLabel();
         jLabelLastName = new javax.swing.JLabel();
         jLabelEmail = new javax.swing.JLabel();
-        jLabelfono = new javax.swing.JLabel();
+        jLabelRole = new javax.swing.JLabel();
         JlabelSubtittle = new javax.swing.JLabel();
         jPanelBuscarPerfil = new javax.swing.JPanel();
         btnShowPotentials = new javax.swing.JButton();
@@ -77,36 +79,32 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
         jtblShowPotentials = new javax.swing.JTable();
         btnAddPotential = new javax.swing.JButton();
         jPanelPublicarAnuncios = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jboxUbicacion2 = new javax.swing.JComboBox();
-        jboxCargo2 = new javax.swing.JComboBox();
-        jboxRubro2 = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
-        jTextDescripcion = new javax.swing.JTextField();
+        jtxfPotentialEmail = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jtxfEmail = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        JPublicarAnuncio = new javax.swing.JButton();
-        jLabel1razonbuscar = new javax.swing.JLabel();
+        btnPotentialToAccount = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
         jPanelVerAnuncios = new javax.swing.JPanel();
         btnShowAccounts = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtblAnuncios = new javax.swing.JTable();
+        jtblShowAccounts = new javax.swing.JTable();
+        btnAddAccount = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setText("First Name: ");
+        jLabel2.setText("Nombre :");
 
-        jLabel3.setText("Last Name: ");
+        jLabel3.setText("Apellido : ");
 
-        jLabeDireccion.setText("...");
+        jLabeDireccion.setText("Cargo : ");
 
-        jLabelDireccion1.setText("Email:");
+        jLabelDireccion1.setText("Correo :");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -124,8 +122,8 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
                     .addComponent(jLabelFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabelLastName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabelEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelfono, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabelRole, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))
+                .addContainerGap(298, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,7 +143,7 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabeDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelfono, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelRole, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(73, Short.MAX_VALUE))
         );
 
@@ -185,7 +183,7 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
             }
         });
         jPanelBuscarPerfil.add(btnShowPotentials);
-        btnShowPotentials.setBounds(10, 10, 180, 32);
+        btnShowPotentials.setBounds(10, 10, 200, 32);
 
         jtblShowPotentials.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -256,7 +254,7 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jtblShowPotentials);
 
         jPanelBuscarPerfil.add(jScrollPane2);
-        jScrollPane2.setBounds(10, 70, 690, 330);
+        jScrollPane2.setBounds(10, 50, 690, 350);
 
         btnAddPotential.setText("Agregar Potencial Cliente");
         btnAddPotential.addActionListener(new java.awt.event.ActionListener() {
@@ -265,74 +263,41 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
             }
         });
         jPanelBuscarPerfil.add(btnAddPotential);
-        btnAddPotential.setBounds(220, 10, 170, 32);
+        btnAddPotential.setBounds(220, 10, 180, 32);
 
         jTabbedPaneVerPubl.addTab("Clientes Potenciales", jPanelBuscarPerfil);
 
         jPanelPublicarAnuncios.setLayout(null);
 
-        jboxUbicacion2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione Ubicacion", "Ate", "Barranco", "Bellavista", "Breña", "Callao", "Carmen de la Legua", "Cercado de Lima", "Cercado de Lima", "Chorrillos", "Comas", "El Agustino", "Independencia", "Jesús María", "La Molina", "La Perla", "La Punta", "La Victoria", "Lince", "Los Olivos", "Magdalena del Mar", "Miraflores", "Pueblo Libre", "Puente Piedra", "Rimac", "San Borja", "San Isidro", "San Juan de Lurigancho", "San Juan de Miraflores", "San Luis", "San Martin de Porres", "San Miguel", "Santa Anita", "Santa Rosa", "Santiago de Surco", "Surquillo", "Ventanilla", "Villa El Savador", "Villa María del Triunfo" }));
-
-        jboxCargo2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione Cargo", "Analista/Asistente", "Ejecutivo Comercial", "Gerencia", "Jefe / Supervisor", "Practicante", "Tecnicos Operativos", "Formador", "Vendedor", "Otros" }));
-
-        jboxRubro2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione un Rubro", "Administracion/Servicios Generales", "Auditoria", "Banca", "Comercial", "Comercio Exterior/Aduanas", "Compras/Logistica", "Consultoria", "Contabilidad", "Finanzas", "Hoteleria/Turismo/Restaurantes", "Ingenieria", "Investigacion y Desarrollo", "Legal", "Marketing/Publicidad", "Medios Digitales / Internet", "Recursos Humanos", "Seguridad Salud Ocupacional y Medio Ambiente", "Sistemas", "Ventas", "Otros", " " }));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jboxRubro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jboxCargo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jboxUbicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(142, 142, 142))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jboxUbicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jboxCargo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jboxRubro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-
-        jPanelPublicarAnuncios.add(jPanel5);
-        jPanel5.setBounds(40, 130, 660, 40);
-
-        jLabel4.setText("Telefono");
+        jLabel4.setText("Correo :");
         jPanelPublicarAnuncios.add(jLabel4);
-        jLabel4.setBounds(50, 220, 60, 16);
-        jPanelPublicarAnuncios.add(jTextDescripcion);
-        jTextDescripcion.setBounds(190, 60, 400, 60);
+        jLabel4.setBounds(90, 210, 60, 16);
+        jPanelPublicarAnuncios.add(jtxfPotentialEmail);
+        jtxfPotentialEmail.setBounds(260, 70, 230, 24);
 
-        jLabel5.setText("Razon Social:");
+        jLabel5.setText("Correo de cliente potencial : ");
         jPanelPublicarAnuncios.add(jLabel5);
-        jLabel5.setBounds(60, 30, 80, 16);
-        jPanelPublicarAnuncios.add(jTextField2);
-        jTextField2.setBounds(150, 220, 140, 20);
+        jLabel5.setBounds(90, 60, 180, 40);
+        jPanelPublicarAnuncios.add(jtxfEmail);
+        jtxfEmail.setBounds(260, 210, 230, 24);
 
-        jLabel6.setText("Descripcion:");
+        jLabel6.setText("PASAR DE POTENCIAL A CUENTA");
         jPanelPublicarAnuncios.add(jLabel6);
-        jLabel6.setBounds(60, 60, 100, 16);
+        jLabel6.setBounds(40, 20, 200, 30);
 
-        jLabel9.setText(" Web");
+        jLabel9.setText("ACTUALIZAR DATOS ");
         jPanelPublicarAnuncios.add(jLabel9);
-        jLabel9.setBounds(50, 190, 60, 16);
-        jPanelPublicarAnuncios.add(jTextField10);
-        jTextField10.setBounds(150, 190, 450, 20);
+        jLabel9.setBounds(40, 170, 190, 16);
 
-        JPublicarAnuncio.setText("Publicar Anuncio");
-        jPanelPublicarAnuncios.add(JPublicarAnuncio);
-        JPublicarAnuncio.setBounds(450, 280, 140, 32);
-        jPanelPublicarAnuncios.add(jLabel1razonbuscar);
-        jLabel1razonbuscar.setBounds(190, 20, 390, 30);
+        btnPotentialToAccount.setText("Crear Cuenta");
+        jPanelPublicarAnuncios.add(btnPotentialToAccount);
+        btnPotentialToAccount.setBounds(530, 30, 140, 80);
 
-        jTabbedPaneVerPubl.addTab("Hacer publicaciones", jPanelPublicarAnuncios);
+        btnUpdate.setText("Actualizar");
+        jPanelPublicarAnuncios.add(btnUpdate);
+        btnUpdate.setBounds(530, 190, 140, 80);
+
+        jTabbedPaneVerPubl.addTab("Actualización de Datos", jPanelPublicarAnuncios);
 
         jPanelVerAnuncios.setLayout(null);
 
@@ -348,7 +313,7 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
         jScrollPane1.setToolTipText("");
         jScrollPane1.setAutoscrolls(true);
 
-        jtblAnuncios.setModel(new javax.swing.table.DefaultTableModel(
+        jtblShowAccounts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -452,7 +417,7 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Empresa", "Rubro", "Cargo", "PagWeb", "Descripcion"
+                "Empresa", "Correo", "Telefono", "Combo", "Metodo de Pago"
             }
         ) {
             Class[] types = new Class [] {
@@ -470,22 +435,31 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jtblAnuncios.addMouseListener(new java.awt.event.MouseAdapter() {
+        jtblShowAccounts.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jtblVerMasClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jtblAnuncios);
+        jScrollPane1.setViewportView(jtblShowAccounts);
 
         jPanelVerAnuncios.add(jScrollPane1);
         jScrollPane1.setBounds(10, 50, 690, 360);
 
-        jTabbedPaneVerPubl.addTab("Cuentas", jPanelVerAnuncios);
+        btnAddAccount.setText("Agregar Nueva Cuenta");
+        btnAddAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddAccountActionPerformed(evt);
+            }
+        });
+        jPanelVerAnuncios.add(btnAddAccount);
+        btnAddAccount.setBounds(170, 10, 190, 32);
 
-        jMenu1.setText("Archivo");
+        jTabbedPaneVerPubl.addTab("Cuentas de Clientes", jPanelVerAnuncios);
+
+        jMenu1.setText("Opciones");
 
         jSalir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
-        jSalir.setText("Salir");
+        jSalir.setText("Cerrar Sesión");
         jSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jSalirActionPerformed(evt);
@@ -503,7 +477,7 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPaneVerPubl, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
+                .addComponent(jTabbedPaneVerPubl)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -527,9 +501,23 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
 
     private void btnShowAccountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAccountsActionPerformed
         // TODO add your handling code here:
-
-        //MOSTRAR
-
+        ArrayList<Account> Acc = MainManager.getAccountUserManager().searchAccounts(adviser_email);
+        
+        try{
+            if(Acc.size() == 0){
+                JOptionPane.showMessageDialog(this, "Aún no hay Cuentas registrados.", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                Account account = null;
+                for(int i=0; i<Acc.size(); i++){
+                    jtblShowAccounts.getModel().setValueAt(account.getName_account(), i, 0);
+                    jtblShowAccounts.getModel().setValueAt(account.getEmail(), i, 1);
+                    jtblShowAccounts.getModel().setValueAt(account.getMobile(), i, 2);
+                    jtblShowAccounts.getModel().setValueAt(account.getName_combo(), i, 3);
+                    jtblShowAccounts.getModel().setValueAt(account.getPay_method(), i, 4);
+                }
+            }
+        }catch(Exception E){
+        }
     }//GEN-LAST:event_btnShowAccountsActionPerformed
 
     private void btnAddPotentialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPotentialActionPerformed
@@ -545,7 +533,7 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
 
         try{
             if(P.size() == 0){
-                JOptionPane.showMessageDialog(this, "Aún no hay Anuncios registrados.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Aún no hay Cliebtes pontenciales registrados.", "Error", JOptionPane.ERROR_MESSAGE);
             }else{
                 Potential potential = null;
                 for(int i=0; i<P.size(); i++){
@@ -561,6 +549,12 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnShowPotentialsActionPerformed
 
+    private void btnAddAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddAccountActionPerformed
+        // TODO add your handling code here:
+        JfrmAccountSignUp Acc = new JfrmAccountSignUp(adviser_email);
+        setVisible(false);
+    }//GEN-LAST:event_btnAddAccountActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -568,13 +562,14 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JPublicarAnuncio;
     private javax.swing.JLabel JlabelSubtittle;
+    private javax.swing.JButton btnAddAccount;
     private javax.swing.JButton btnAddPotential;
+    private javax.swing.JButton btnPotentialToAccount;
     private javax.swing.JButton btnShowAccounts;
     private javax.swing.JButton btnShowPotentials;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabeDireccion;
-    private javax.swing.JLabel jLabel1razonbuscar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -585,11 +580,10 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelEmail;
     private javax.swing.JLabel jLabelFirstName;
     private javax.swing.JLabel jLabelLastName;
-    private javax.swing.JLabel jLabelfono;
+    private javax.swing.JLabel jLabelRole;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanelBuscarPerfil;
     private javax.swing.JPanel jPanelPerfil;
     private javax.swing.JPanel jPanelPublicarAnuncios;
@@ -598,13 +592,9 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     public static javax.swing.JTabbedPane jTabbedPaneVerPubl;
-    private javax.swing.JTextField jTextDescripcion;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JComboBox jboxCargo2;
-    private javax.swing.JComboBox jboxRubro2;
-    private javax.swing.JComboBox jboxUbicacion2;
-    private javax.swing.JTable jtblAnuncios;
+    private javax.swing.JTable jtblShowAccounts;
     private javax.swing.JTable jtblShowPotentials;
+    private javax.swing.JTextField jtxfEmail;
+    private javax.swing.JTextField jtxfPotentialEmail;
     // End of variables declaration//GEN-END:variables
 }

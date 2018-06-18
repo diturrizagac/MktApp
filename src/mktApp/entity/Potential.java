@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class Potential extends User implements Serializable{
     
     
-    private String name_adviser;
+    private String email_adviser;
     private String mobile;
     private String name_company;
     private String call_status;
@@ -23,12 +23,12 @@ public class Potential extends User implements Serializable{
     public Potential() {
     }
 
-    public String getName_adviser() {
-        return name_adviser;
+    public String getEmail_adviser() {
+        return email_adviser;
     }
 
-    public void setName_adviser(String name_adviser) {
-        this.name_adviser = name_adviser;
+    public void setEmail_adviser(String email_adviser) {
+        this.email_adviser = email_adviser;
     }
 
     public String getMobile() {
