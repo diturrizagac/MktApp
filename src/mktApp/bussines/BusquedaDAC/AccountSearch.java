@@ -8,16 +8,16 @@ package mktApp.bussines.BusquedaDAC;
 import java.util.ArrayList;
 import java.util.List;
 import mktApp.entity.Account;
-import mktApp.entity.ParametersLoginImpl;
+import mktApp.entity.ParametersEmailImpl;
 
 /**
  *
  * @author DIEGO
  */
-public class AccountSearch extends DivideAndConquerSearch<Account, ParametersLoginImpl>{
+public class AccountSearch extends DivideAndConquerSearch<Account, ParametersEmailImpl>{
     
     @Override
-    protected List<Account> solve(List<Account> lista, ParametersLoginImpl parameters) {
+    protected List<Account> solve(List<Account> lista, ParametersEmailImpl parameters) {
         Account account = null;
         
         for(int i = 0; i < lista.size(); i++){
@@ -25,7 +25,7 @@ public class AccountSearch extends DivideAndConquerSearch<Account, ParametersLog
             Account accountAux = lista.get(i);
             
             //Verificamos la condición
-            if(parameters.getUsername().trim().equals(accountAux.getEmail()) == true){
+            if(parameters.getEmail().trim().equals(accountAux.getEmail()) == true){
                 account = accountAux;
                 i = lista.size()+1;
             }

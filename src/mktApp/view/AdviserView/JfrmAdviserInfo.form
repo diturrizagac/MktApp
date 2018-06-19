@@ -272,6 +272,11 @@
                           <Editor/>
                           <Renderer/>
                         </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
                       </TableColumnModel>
                     </Property>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
@@ -319,7 +324,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="jtxfPotentialEmail">
+            <Component class="javax.swing.JTextField" name="jtxfPotentialEmailToTranslate">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="260" y="70" width="230" height="-1"/>
@@ -336,7 +341,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="jtxfEmail">
+            <Component class="javax.swing.JTextField" name="jtxfEmailToUpdate">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="260" y="210" width="230" height="-1"/>
@@ -367,6 +372,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Pasar Cuenta"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPotentialToAccountActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="530" y="30" width="140" height="80"/>
@@ -377,6 +385,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Actualizar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="530" y="190" width="140" height="80"/>
@@ -428,9 +439,9 @@
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="5" rowCount="100">
-                        <Column editable="false" title="Empresa" type="java.lang.String"/>
-                        <Column editable="false" title="Correo" type="java.lang.String"/>
-                        <Column editable="false" title="Telefono" type="java.lang.String"/>
+                        <Column editable="true" title="Empresa" type="java.lang.String"/>
+                        <Column editable="true" title="Correo" type="java.lang.String"/>
+                        <Column editable="true" title="Telefono" type="java.lang.String"/>
                         <Column editable="false" title="Combo" type="java.lang.String"/>
                         <Column editable="true" title="Metodo de Pago" type="java.lang.String"/>
                       </Table>

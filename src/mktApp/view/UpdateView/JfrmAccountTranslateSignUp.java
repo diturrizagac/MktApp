@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package mktApp.view.AccountView;
+package mktApp.view.UpdateView;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import mktApp.bussines.MainManager;
 import mktApp.entity.Account;
-import mktApp.entity.Adviser;
+import mktApp.entity.Potential;
 import mktApp.utility.Clean;
 import mktApp.view.AdviserView.JfrmAdviserInfo;
 
@@ -24,11 +24,12 @@ import mktApp.view.AdviserView.JfrmAdviserInfo;
  */
 public class JfrmAccountTranslateSignUp extends javax.swing.JFrame {
     String  adviser_email_parameter;
-    Adviser adviser;
+    String email_to_change;
+    Potential potential;
     /**
      * Creates new form JfrmAccountTranslateSignUp
      */
-    public JfrmAccountTranslateSignUp(String email_parameter) {
+    public JfrmAccountTranslateSignUp(String adviser_email_parameter, String email_to_translate) {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -41,8 +42,13 @@ public class JfrmAccountTranslateSignUp extends javax.swing.JFrame {
         getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
         fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());
         setVisible(true);
-        this.adviser_email_parameter = email_parameter;
-        adviser = MainManager.getAdviserUserManager().searchAdviser(adviser_email_parameter);
+        this.adviser_email_parameter = adviser_email_parameter;
+        potential = MainManager.getPotentialUserManager().searchPotential(email_to_translate);
+        jtxfEmail.setText(potential.getEmail());
+        jtxfFirstName.setText(potential.getFirst_name());
+        jtxfLastName.setText(potential.getLast_name());
+        jtxfMobile.setText(potential.getMobile());
+        jlblCompanyName.setText(potential.getName_company());
     }
 
     /**
@@ -125,6 +131,10 @@ public class JfrmAccountTranslateSignUp extends javax.swing.JFrame {
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("TRANSFERENCIA A CUENTA");
 
+        jlblCompanyName.setBackground(new java.awt.Color(51, 51, 51));
+        jlblCompanyName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jlblCompanyName.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -150,20 +160,18 @@ public class JfrmAccountTranslateSignUp extends javax.swing.JFrame {
                                 .addComponent(jtxfPayMethod, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jlblCompanyName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jtxfMobile, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
+                                    .addComponent(jtxfCombo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jtxfMobile, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jtxfCombo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                    .addComponent(jtxfLastName, javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jtxfEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
-                                                    .addComponent(jtxfFirstName, javax.swing.GroupLayout.Alignment.LEADING))
-                                                .addGap(27, 27, 27)
-                                                .addComponent(jLabel1)))
-                                        .addGap(0, 0, Short.MAX_VALUE))))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(jtxfLastName, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jtxfEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
+                                            .addComponent(jtxfFirstName, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addGap(27, 27, 27)
+                                        .addComponent(jLabel1))
+                                    .addComponent(jlblCompanyName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(171, 171, 171)
                         .addComponent(btnAceptar)
@@ -229,7 +237,8 @@ public class JfrmAccountTranslateSignUp extends javax.swing.JFrame {
             account.setEmail(jtxfEmail.getText());
             account.setFirst_name(jtxfFirstName.getText());
             account.setLast_name(jtxfLastName.getText());
-            //account.setName_account(jlblCompanyName.getText());
+            account.setName_account(potential.getName_company());
+            account.setEmail_adviser(adviser_email_parameter);
             account.setMobile(jtxfMobile.getText());
             account.setName_combo(jtxfCombo.getText());
             account.setPay_method(jtxfPayMethod.getText());
@@ -253,6 +262,7 @@ public class JfrmAccountTranslateSignUp extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "¡Usuario registrado", "Registrado", JOptionPane.INFORMATION_MESSAGE);
                     int response = JOptionPane.showConfirmDialog(this, "¿Desea guardar los cambios efectuados?", "Guardar", JOptionPane.YES_NO_OPTION);
                     if (response == JOptionPane.YES_OPTION) {
+                        boolean statusPotential = MainManager.getPotentialUserManager().removePotential(potential);
                         boolean status_response = MainManager.getDatabaseManager().guardarCambios();
                         JfrmAdviserInfo Ad = new JfrmAdviserInfo(adviser_email_parameter);
                         this.dispose();
@@ -270,7 +280,7 @@ public class JfrmAccountTranslateSignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
         JfrmAdviserInfo Adv = new JfrmAdviserInfo(adviser_email_parameter);
         setVisible(false);
-        dispose();
+        //dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**

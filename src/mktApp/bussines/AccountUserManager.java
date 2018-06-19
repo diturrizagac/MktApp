@@ -10,7 +10,7 @@ import java.util.List;
 import mktApp.bussines.BusquedaDAC.AccountSearch;
 import static mktApp.bussines.Manager.dataBase;
 import mktApp.entity.Account;
-import mktApp.entity.ParametersLoginImpl;
+import mktApp.entity.ParametersEmailImpl;
 
 /**
  *
@@ -55,19 +55,6 @@ public class AccountUserManager extends Manager{
         return status;
     }
     
-    //Buscar Cuenta
-    /*public Account searchAccount(String username){
-        ParametersLoginImpl parameters = new ParametersLoginImpl();
-        parameters.setUsername(username);
-        
-        List<Account> lsAccounts = dataBase.getAccounts();
-        List<Account> accountsAux;
-        
-        AccountSearch DYV = new AccountSearch();
-        accountsAux = DYV.search(lsAccounts, parameters);
-        return accountsAux.get(0);
-    }*/
-    
     //Validar Cuenta
     public Account validateAccount(String username){
         Account account = null;
@@ -85,6 +72,38 @@ public class AccountUserManager extends Manager{
         }
         return account;
     }
+    //Actualizacion de Cuenta
+    public boolean updateAccount(Account account){
+        boolean status =false;
+        ArrayList<Account> accounts = dataBase.getAccounts();
+        Account accountAux = null;
+        
+        for(int i=0; i<accounts.size(); i++){
+            accountAux = accounts.get(i);
+            if(account.getEmail_adviser().trim().equalsIgnoreCase(accountAux.getEmail_adviser()) == true){
+                accounts.remove(i);
+                accounts.add(i,account);
+                status = true;
+                i = accounts.size()+1; //rompe el bucle
+            }       
+        }
+        return status;
+    }
+    
+    //Buscar Cuenta
+    public Account searchAccount(String account_email){
+        ParametersEmailImpl parameters = new ParametersEmailImpl();
+        parameters.setEmail(account_email);
+        
+        List<Account> lsAccounts = dataBase.getAccounts();
+        List<Account> accountsAux;
+        
+        AccountSearch DYV = new AccountSearch();
+        accountsAux = DYV.search(lsAccounts, parameters);
+        return accountsAux.get(0);
+    }
+    
+    
     
     //Mostrar lista de cuentas de un asesor
     public ArrayList<Account> searchAccounts(String adviser_email){

@@ -10,9 +10,11 @@ import mktApp.bussines.MainManager;
 import mktApp.entity.Account;
 import mktApp.entity.Adviser;
 import mktApp.entity.Potential;
+import mktApp.view.UpdateView.JfrmAccountTranslateSignUp;
 import mktApp.view.JfrmMainView;
 import mktApp.view.JfrmPotentialSignUp;
 import mktApp.view.JfrmAccountSignUp;
+import mktApp.view.UpdateView.JfrmUpdateOptions;
 
 /**
  *
@@ -79,9 +81,9 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
         btnAddPotential = new javax.swing.JButton();
         jPanelPublicarAnuncios = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jtxfPotentialEmail = new javax.swing.JTextField();
+        jtxfPotentialEmailToTranslate = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jtxfEmail = new javax.swing.JTextField();
+        jtxfEmailToUpdate = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         btnPotentialToAccount = new javax.swing.JButton();
@@ -271,14 +273,14 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
         jLabel4.setText("Correo :");
         jPanelPublicarAnuncios.add(jLabel4);
         jLabel4.setBounds(90, 210, 60, 16);
-        jPanelPublicarAnuncios.add(jtxfPotentialEmail);
-        jtxfPotentialEmail.setBounds(260, 70, 230, 24);
+        jPanelPublicarAnuncios.add(jtxfPotentialEmailToTranslate);
+        jtxfPotentialEmailToTranslate.setBounds(260, 70, 230, 24);
 
         jLabel5.setText("Correo de cliente potencial : ");
         jPanelPublicarAnuncios.add(jLabel5);
         jLabel5.setBounds(90, 60, 180, 40);
-        jPanelPublicarAnuncios.add(jtxfEmail);
-        jtxfEmail.setBounds(260, 210, 230, 24);
+        jPanelPublicarAnuncios.add(jtxfEmailToUpdate);
+        jtxfEmailToUpdate.setBounds(260, 210, 230, 24);
 
         jLabel6.setText("PASAR DE POTENCIAL A CUENTA");
         jPanelPublicarAnuncios.add(jLabel6);
@@ -289,10 +291,20 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
         jLabel9.setBounds(40, 170, 190, 16);
 
         btnPotentialToAccount.setText("Pasar Cuenta");
+        btnPotentialToAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPotentialToAccountActionPerformed(evt);
+            }
+        });
         jPanelPublicarAnuncios.add(btnPotentialToAccount);
         btnPotentialToAccount.setBounds(530, 30, 140, 80);
 
         btnUpdate.setText("Actualizar");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
         jPanelPublicarAnuncios.add(btnUpdate);
         btnUpdate.setBounds(530, 190, 140, 80);
 
@@ -423,7 +435,7 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
+                true, true, true, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -555,6 +567,20 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_btnAddAccountActionPerformed
 
+    private void btnPotentialToAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPotentialToAccountActionPerformed
+        // TODO add your handling code here:
+        String email_to_translate = jtxfPotentialEmailToTranslate.getText();
+        JfrmAccountTranslateSignUp trans = new JfrmAccountTranslateSignUp(adviser_email,email_to_translate);
+        setVisible(false);
+    }//GEN-LAST:event_btnPotentialToAccountActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        String email_to_change = jtxfEmailToUpdate.getText();
+        JfrmUpdateOptions update = new JfrmUpdateOptions(adviser_email,email_to_change);
+        setVisible(false);
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -594,7 +620,7 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
     public static javax.swing.JTabbedPane jTabbedPaneVerPubl;
     private javax.swing.JTable jtblShowAccounts;
     private javax.swing.JTable jtblShowPotentials;
-    private javax.swing.JTextField jtxfEmail;
-    private javax.swing.JTextField jtxfPotentialEmail;
+    private javax.swing.JTextField jtxfEmailToUpdate;
+    private javax.swing.JTextField jtxfPotentialEmailToTranslate;
     // End of variables declaration//GEN-END:variables
 }
