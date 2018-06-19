@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import mktApp.bussines.MainManager;
 import mktApp.entity.Account;
+import mktApp.entity.Adviser;
 import mktApp.utility.Clean;
 import mktApp.view.AdviserView.JfrmAdviserInfo;
 
@@ -23,6 +24,7 @@ import mktApp.view.AdviserView.JfrmAdviserInfo;
  */
 public class JfrmAccountTranslateSignUp extends javax.swing.JFrame {
     String  adviser_email_parameter;
+    Adviser adviser;
     /**
      * Creates new form JfrmAccountTranslateSignUp
      */
@@ -40,6 +42,7 @@ public class JfrmAccountTranslateSignUp extends javax.swing.JFrame {
         fondo.setBounds(0,0,uno.getIconWidth(),uno.getIconHeight());
         setVisible(true);
         this.adviser_email_parameter = email_parameter;
+        adviser = MainManager.getAdviserUserManager().searchAdviser(adviser_email_parameter);
     }
 
     /**
