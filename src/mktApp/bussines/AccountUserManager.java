@@ -7,10 +7,12 @@ package mktApp.bussines;
 
 import java.util.ArrayList;
 import java.util.List;
-import mktApp.bussines.BusquedaDAC.AccountSearch;
+import mktApp.bussines.BusquedaDAC.AccountEmailSearch;
+import mktApp.bussines.BusquedaDAC.AccountLoginSearch;
 import static mktApp.bussines.Manager.dataBase;
 import mktApp.entity.Account;
 import mktApp.entity.ParametersEmailImpl;
+import mktApp.entity.ParametersLoginImpl;
 
 /**
  *
@@ -18,7 +20,7 @@ import mktApp.entity.ParametersEmailImpl;
  */
 public class AccountUserManager extends Manager{
     //IniciarSesion
-    /*public boolean signInAccount(Account account) { //iniciar sesion
+    public boolean signInAccount(Account account) { //iniciar sesion
         boolean state = false;
         
         List<Account> accounts = dataBase.getAccounts();
@@ -29,13 +31,13 @@ public class AccountUserManager extends Manager{
         
         List<Account> result;
         
-        AccountSearch DYV = new AccountSearch();
+        AccountLoginSearch DYV = new AccountLoginSearch();
         result = DYV.search(accounts, parameters);
         if(result.size() != 0){
             
         }
         return state;
-    }*/
+    }
     
     //Tamanio de Arreglo
     public int getSize(){
@@ -59,15 +61,15 @@ public class AccountUserManager extends Manager{
     public Account validateAccount(String username){
         Account account = null;
         
-        ArrayList<Account> Accounts = dataBase.getAccounts();
+        ArrayList<Account> lsAccounts = dataBase.getAccounts();
         Account accountAux = null;
         
-        for(int i=0; i<Accounts.size(); i++){
-            accountAux = Accounts.get(i);
+        for(int i=0; i<lsAccounts.size(); i++){
+            accountAux = lsAccounts.get(i);
             
             if(username.trim().equalsIgnoreCase(accountAux.getEmail()) == true){
                 account = accountAux;
-                i = Accounts.size()+1;
+                i = lsAccounts.size()+1;
             }       
         }
         return account;
@@ -98,7 +100,7 @@ public class AccountUserManager extends Manager{
         List<Account> lsAccounts = dataBase.getAccounts();
         List<Account> accountsAux;
         
-        AccountSearch DYV = new AccountSearch();
+        AccountEmailSearch DYV = new AccountEmailSearch();
         accountsAux = DYV.search(lsAccounts, parameters);
         return accountsAux.get(0);
     }

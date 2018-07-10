@@ -9,7 +9,6 @@ package mktApp.bussines.BusquedaDAC;
 import java.util.ArrayList;
 import java.util.List;
 import mktApp.entity.ParametersEmailImpl;
-import mktApp.entity.ParametersLoginImpl;
 import mktApp.entity.Potential;
 
 /**

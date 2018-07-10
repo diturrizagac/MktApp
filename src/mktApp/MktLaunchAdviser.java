@@ -11,7 +11,7 @@ import mktApp.view.JfrmMainView;
  *
  * @author DIEGO
  */
-public class MktLaunch {
+public class MktLaunchAdviser {
 
     /**
      * @param args the command line arguments

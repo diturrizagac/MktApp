@@ -18,12 +18,18 @@ public class Database implements Serializable{
     private ArrayList<Potential> potentials;
     private ArrayList<Adviser> avdisers;
     private ArrayList<Account> accounts;
+    private ArrayList<Potential> acc_potentials;
+    private ArrayList<Adviser> acc_advisers;
+    private ArrayList<Account> acc_accounts;
     
     public Database(){
 
         potentials = new ArrayList<Potential>();
         avdisers = new ArrayList<Adviser>();
         accounts = new ArrayList<Account>();
+        acc_potentials = new ArrayList<Potential>();
+        acc_advisers = new ArrayList<Adviser>();
+        acc_accounts = new ArrayList<Account>();
     }
     
     public boolean guardarCambios(){
@@ -42,4 +48,15 @@ public class Database implements Serializable{
         return accounts;
     }
     
+    public ArrayList<Potential> getAcc_Potentials() {
+        return potentials;
+    }
+
+    public ArrayList<Adviser> getAcc_Advisers() {
+        return avdisers;
+    }
+    
+    public ArrayList<Account> getAcc_Accounts() {
+        return accounts;
+    }
 }

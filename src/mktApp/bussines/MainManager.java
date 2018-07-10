@@ -7,17 +7,28 @@ package mktApp.bussines;
 
 public class MainManager{
     /*Almacenamos datos */
+    private static DatabaseManager databaseManager;
     private static AdviserUserManager adviserUserManager;
     private static AccountUserManager accountUserManager;
     private static PotentialUserManager potentialUserManager;
-    private static DatabaseManager databaseManager;
+    //Para los clientes
+    private static Account_AdviserUserManager acc_adviserUserManager;
+    private static Account_AccountUserManager acc_accountUserManager;
+    private static Account_PotentialUserManager acc_potentialUserManager;
     
     /*Por medio de esta estructura de código podemos instanciar atributos estáticos*/
     static{
+        databaseManager = new DatabaseManager();
         adviserUserManager = new AdviserUserManager();
         accountUserManager = new AccountUserManager();
         potentialUserManager = new PotentialUserManager();
-        databaseManager = new DatabaseManager();
+        acc_adviserUserManager = new Account_AdviserUserManager();
+        acc_accountUserManager = new Account_AccountUserManager();
+        acc_potentialUserManager = new Account_PotentialUserManager();
+    }
+    
+    public static DatabaseManager getDatabaseManager() {
+        return databaseManager;
     }
     
     public static AdviserUserManager getAdviserUserManager() {
@@ -31,8 +42,17 @@ public class MainManager{
     public static PotentialUserManager getPotentialUserManager(){
         return potentialUserManager;
     }
-    public static DatabaseManager getDatabaseManager() {
-        return databaseManager;
+    
+    public static Account_AdviserUserManager getAccount_AdviserUserManager() {
+        return acc_adviserUserManager;
+    }
+
+    public static Account_AccountUserManager getAccount_AccountUserManager() {
+        return acc_accountUserManager;
+    }
+    
+    public static Account_PotentialUserManager getAccount_PotentialUserManager(){
+        return acc_potentialUserManager;
     }
     
 }

@@ -1,5 +1,8 @@
 package mktApp.view.AdviserView;
 
+import Promoción.Contact;
+import Promoción.Mailing;
+import Ventanas.Interfaz;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -93,6 +96,7 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtblShowAccounts = new javax.swing.JTable();
         btnAddAccount = new javax.swing.JButton();
+        btnGoWeb = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jSalir = new javax.swing.JMenuItem();
@@ -465,6 +469,15 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
         jPanelVerAnuncios.add(btnAddAccount);
         btnAddAccount.setBounds(170, 10, 190, 32);
 
+        btnGoWeb.setText("Enviar Link ");
+        btnGoWeb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGoWebActionPerformed(evt);
+            }
+        });
+        jPanelVerAnuncios.add(btnGoWeb);
+        btnGoWeb.setBounds(510, 10, 160, 32);
+
         jTabbedPaneVerPubl.addTab("Cuentas de Clientes", jPanelVerAnuncios);
 
         jMenu1.setText("Opciones");
@@ -581,16 +594,22 @@ public class JfrmAdviserInfo extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
+    private void btnGoWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoWebActionPerformed
+        // TODO add your handling code here:
+        Interfaz IU = new Interfaz(adviser_email);
+        dispose();
+    }//GEN-LAST:event_btnGoWebActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JlabelSubtittle;
     private javax.swing.JButton btnAddAccount;
     private javax.swing.JButton btnAddPotential;
+    private javax.swing.JButton btnGoWeb;
     private javax.swing.JButton btnPotentialToAccount;
     private javax.swing.JButton btnShowAccounts;
     private javax.swing.JButton btnShowPotentials;

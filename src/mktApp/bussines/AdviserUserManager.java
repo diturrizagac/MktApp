@@ -56,21 +56,6 @@ public class AdviserUserManager extends Manager{
         return status;
     }
     
-    //Buscar Asesor
-    public Adviser searchAdviser(String adviser_email){
-        
-        
-        ParametersEmailImpl parameters = new ParametersEmailImpl();
-        parameters.setEmail(adviser_email);
-        
-        List<Adviser> lsAdvisers = dataBase.getAdvisers();
-        List<Adviser> advisersAux;
-        
-        AdviserEmailSearch DYV = new AdviserEmailSearch();
-        advisersAux = DYV.search(lsAdvisers, parameters);
-        return advisersAux.get(0);
-    }
-    
     //Validar Asesor
     public Adviser validateAdviser(String username){
         Adviser adviser = null;
@@ -88,6 +73,21 @@ public class AdviserUserManager extends Manager{
         }
         return adviser;
     }
+    //Buscar Asesor
+    public Adviser searchAdviser(String adviser_email){
+        ParametersEmailImpl parameters = new ParametersEmailImpl();
+        parameters.setEmail(adviser_email);
+        
+        List<Adviser> lsAdvisers = dataBase.getAdvisers();
+        List<Adviser> advisersAux;
+        
+        AdviserEmailSearch DYV = new AdviserEmailSearch();
+        advisersAux = DYV.search(lsAdvisers, parameters);
+        return advisersAux.get(0);
+    }
+    
+    
+    
     
     
 }

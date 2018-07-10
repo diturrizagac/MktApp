@@ -1,12 +1,9 @@
 package mktApp.view.AdviserView;
 
-import mktApp.view.AdviserView.JfrmAdviserInfo;
 import javax.swing.*;
 import mktApp.bussines.MainManager;
-import mktApp.entity.Account;
 import mktApp.entity.Adviser;
 import mktApp.view.JfrmMainView;
-
 
 /**
  *
@@ -148,15 +145,17 @@ public class JfrmAdviserSignIn extends javax.swing.JFrame {
                 adviser.setPassword(passLocal);
                 
                 /*Usamos el "Gestor Asesor" para validar los datos*/
-                Adviser Ad = MainManager.getAdviserUserManager().validateAdviser(userLocal);
-                if (Ad != null){
-                    JfrmAdviserInfo adviserInfo = new JfrmAdviserInfo(Ad.getEmail());
+                boolean state = MainManager.getAdviserUserManager().signInAdviser(adviser);
+                if (state == true){
+                    Adviser Ad = MainManager.getAdviserUserManager().validateAdviser(userLocal);
+                    JfrmAdviserInfo adviserInfo = new JfrmAdviserInfo(adviser.getEmail());
                     this.dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "El usuario y contraseña no coinciden", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
-        } catch (Exception E) {
+        } catch (Exception e) {
+            e.printStackTrace();
             System.out.println("Error");
         }
 
